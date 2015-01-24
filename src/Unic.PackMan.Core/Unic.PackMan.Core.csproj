@@ -84,6 +84,7 @@
     <Compile Include="Tracking\TrackingService.cs" />
     <Compile Include="User\IUserService.cs" />
     <Compile Include="User\UserService.cs" />
+    <Compile Include="Utilities\UriHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\StartTracking.cs" />

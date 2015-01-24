@@ -67,7 +67,7 @@
         {
             if (!args.IsPostBack)
             {
-                SheerResponse.Confirm(Translate.Text("Are you sure you want to stop tracking? Tracked items will be lost !!"));
+                SheerResponse.Confirm(Translate.Text("Are you sure you want to stop tracking? Tracked items will be lost. If you don't want to loose your tracked items, please generate the package first"));
                 args.WaitForPostBack();
             }
             else if (args.Result == "yes")
