@@ -23,13 +23,6 @@ key: __sortorder
 content-length: 3
 
 400
-----field----
-field: {A4F985D9-98B3-4B52-AAAF-4344F6E747C6}
-name: __Workflow
-key: __workflow
-content-length: 0
-
-
 ----version----
 language: da
 version: 1
@@ -192,13 +185,6 @@ key: __updated by
 content-length: 14
 
 sitecore\admin
-----field----
-field: {3E431DE1-525E-47A3-B6B0-1CCBEC3A8C98}
-name: __Workflow state
-key: __workflow state
-content-length: 0
-
-
 ----version----
 language: ja-JP
 version: 1
