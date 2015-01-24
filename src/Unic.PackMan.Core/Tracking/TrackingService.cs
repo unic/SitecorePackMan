@@ -1,6 +1,6 @@
 ﻿namespace Unic.PackMan.Core.Tracking
 {
-    using Configuration;
+    using System.Linq;
     using Newtonsoft.Json;
     using Sitecore.Data.Items;
     using Sitecore.Diagnostics;
@@ -9,17 +9,10 @@
     public class TrackingService : ITrackingService
     {
         private readonly IUserService userService;
-        private readonly IConfigurationService configurationService;
 
-        public TrackingService(IUserService userService, IConfigurationService configurationService)
+        public TrackingService(IUserService userService)
         {
-            this.configurationService = configurationService;
             this.userService = userService;
-        }
-
-        public bool IsTrackingEnabled()
-        {
-            return this.userService.IsTrackingEnabled();
         }
 
         public Tracking GetTracking()
@@ -32,20 +25,36 @@
         {
             Assert.ArgumentNotNull(item, "item");
             
-            if (!this.IsTrackingEnabled())
+            if (!this.userService.IsTrackingEnabled())
             {
-                Log.Warn("Tracking is disabled, don't add the item", this);
-                return;
-            }
-
-            if (!this.configurationService.IsItemIncluded(item))
-            {
-                Log.Debug("Item is excluded, don't add the item", this);
+                Log.Info("Tracking is disabled, don't add the item", this);
                 return;
             }
 
             var data = this.GetTracking() ?? new Tracking();
             data.Items.Add(new TrackedItem { Id = item.ID.ToString(), WithSubItems = withSubItems });
+            this.userService.SaveTrackingList(JsonConvert.SerializeObject(data));
+        }
+
+        public void RemoveItemFromTrack(Item item)
+        {
+            Assert.ArgumentNotNull(item, "item");
+
+            if (!this.userService.IsTrackingEnabled())
+            {
+                Log.Info("Tracking is disabled, don't add the item", this);
+                return;
+            }
+
+            var data = this.GetTracking();
+            if (data == null) return;
+
+            var itemsToRemove = data.Items.Where(i => i.Id == item.ID.ToString()).ToList();
+            foreach (var itemToRemove in itemsToRemove)
+            {
+                data.Items.Remove(itemToRemove);
+            }
+            
             this.userService.SaveTrackingList(JsonConvert.SerializeObject(data));
         }
     }

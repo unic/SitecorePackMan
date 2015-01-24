@@ -4,10 +4,10 @@
 
     public interface ITrackingService
     {
-        bool IsTrackingEnabled();
-
         Tracking GetTracking();
 
         void AddItemToTrack(Item item, bool withSubItems = false);
+
+        void RemoveItemFromTrack(Item item);
     }
 }

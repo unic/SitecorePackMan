@@ -1,9 +1,7 @@
 ﻿namespace Unic.PackMan.Core.Commands
 {
-    using Configuration;
     using Sitecore.Pipelines;
     using Sitecore.Shell.Framework.Commands;
-    using Unic.PackMan.Core.Tracking;
     using Unic.PackMan.Core.User;
 
     /// <summary>
@@ -12,26 +10,26 @@
     public class StartTracking : Command
     {
         /// <summary>
-        /// The tracking service
+        /// The user service
         /// </summary>
-        private readonly ITrackingService trackingService;
+        private readonly IUserService userService;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="StartTracking"/> class.
         /// HINT: Use poor man dependency injection here, because the Sitecore factory does only seem to work for
         /// events and pipelines. Dear Sitecore devs, why??
         /// </summary>
-        public StartTracking() : this(new TrackingService(new UserService(), new ConfigurationService()))
+        public StartTracking() : this(new UserService())
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StartTracking" /> class.
+        /// Initializes a new instance of the <see cref="StartTracking"/> class.
         /// </summary>
-        /// <param name="trackingService">The tracking service.</param>
-        public StartTracking(ITrackingService trackingService)
+        /// <param name="userService">The user service.</param>
+        public StartTracking(IUserService userService)
         {
-            this.trackingService = trackingService;
+            this.userService = userService;
         }
 
         /// <summary>
@@ -51,7 +49,7 @@
         /// <returns>State of the current command</returns>
         public override CommandState QueryState(CommandContext context)
         {
-            if (this.trackingService.IsTrackingEnabled())
+            if (this.userService.IsTrackingEnabled())
             {
                 return CommandState.Disabled;
             }
