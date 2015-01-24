@@ -7,6 +7,7 @@
     using Sitecore.Data.Items;
     using Sitecore.Diagnostics;
     using Unic.PackMan.Core.User;
+    using Unic.PackMan.Core.Utilities;
 
     /// <summary>
     /// Service class for the tracking logic
@@ -59,7 +60,17 @@
         public bool IsItemTracked(Item item)
         {
             var data = this.GetTracking();
-            return data != null && data.Items.Any(i => i.Uri == item.Uri.ToString());
+            return data != null && data.Items.Any(i => i.Uri == UriHelper.GetUriWithoutQuery(item.Uri.ToString()));
+        }
+
+        /// <summary>
+        /// Determines whether any items are tracked.
+        /// </summary>
+        /// <returns>Whether any items are tracked.</returns>
+        public bool HasTrackedItems()
+        {
+            var data = this.GetTracking();
+            return data != null && data.Items.Any();
         }
 
         /// <summary>
@@ -86,16 +97,17 @@
             lock (this.lockObject)
             {
                 var data = this.GetTracking() ?? new Tracking();
-                foreach (var existingItem in data.Items.Where(i => i.Uri == item.Uri.ToString()).ToList())
+                foreach (var existingItem in data.Items.Where(i => i.Uri == UriHelper.GetUriWithoutQuery(item.Uri.ToString())).ToList())
                 {
                     data.Items.Remove(existingItem);
                 }
 
                 data.Items.Add(new TrackedItem
                         {
-                            Uri = item.Uri.ToString(),
+                            Uri = UriHelper.GetUriWithoutQuery(item.Uri.ToString()),
                             DisplayName = item.DisplayName,
                             Path = item.Paths.FullPath,
+                            Icon = item.Appearance.Icon,
                             WithSubItems = withSubItems
                         });
 
@@ -128,7 +140,7 @@
                 var data = this.GetTracking();
                 if (data == null) return;
 
-                var itemsToRemove = data.Items.Where(i => new ItemUri(i.Uri).ItemID.ToString() == item.ID.ToString()).ToList();
+                var itemsToRemove = data.Items.Where(i => i.Uri == UriHelper.GetUriWithoutQuery(item.Uri.ToString())).ToList();
                 foreach (var itemToRemove in itemsToRemove)
                 {
                     data.Items.Remove(itemToRemove);

@@ -30,6 +30,14 @@
         public string Path { get; set; }
 
         /// <summary>
+        /// Gets or sets the icon.
+        /// </summary>
+        /// <value>
+        /// The icon.
+        /// </value>
+        public string Icon { get; set; }
+
+        /// <summary>
         /// Gets or sets a value indicating whether to add the item with subitems.
         /// </summary>
         /// <value>
