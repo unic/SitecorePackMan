@@ -9,6 +9,7 @@
     using Unic.PackMan.Core.Configuration;
     using Unic.PackMan.Core.Tracking;
     using Unic.PackMan.Core.User;
+    using Unic.PackMan.Core.Utilities;
 
     /// <summary>
     /// Gutter icon to inform the user about the item state in the 
@@ -47,13 +48,7 @@
         {
             if (this.trackedItems == null) return null;
 
-            var trackingItem = this.trackedItems.FirstOrDefault(
-                x =>
-                    {
-                        var uri = new ItemUri(x.Uri);
-                        return uri.DatabaseName == item.Database.Name && uri.ItemID == item.ID;
-                    });
-
+            var trackingItem = this.trackedItems.FirstOrDefault(i => i.Uri == UriHelper.GetUriWithoutQuery(item.Uri.ToString()));
             if (trackingItem == null) return null;
 
             if (trackingItem.WithSubItems)
