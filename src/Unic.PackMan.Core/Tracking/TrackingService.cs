@@ -14,11 +14,6 @@
             this.userService = userService;
         }
 
-        public bool IsTrackingEnabled()
-        {
-            return this.userService.IsTrackingEnabled();
-        }
-
         public Tracking GetTracking()
         {
             var data = this.userService.GetTrackingList();
@@ -29,7 +24,7 @@
         {
             Assert.ArgumentNotNull(item, "item");
             
-            if (!this.IsTrackingEnabled())
+            if (!this.userService.IsTrackingEnabled())
             {
                 Log.Info("Tracking is disabled, don't add the item", this);
                 return;

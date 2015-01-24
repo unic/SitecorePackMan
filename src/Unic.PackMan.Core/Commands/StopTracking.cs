@@ -11,26 +11,26 @@
     public class StopTracking : Command
     {
         /// <summary>
-        /// The tracking service
+        /// The user service
         /// </summary>
-        private readonly ITrackingService trackingService;
+        private readonly IUserService userService;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="StopTracking"/> class.
         /// HINT: Use poor man dependency injection here, because the Sitecore factory does only seem to work for
         /// events and pipelines. Dear Sitecore devs, why??
         /// </summary>
-        public StopTracking() : this(new TrackingService(new UserService()))
+        public StopTracking() : this(new UserService())
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="StopTracking" /> class.
         /// </summary>
-        /// <param name="trackingService">The tracking service.</param>
-        public StopTracking(ITrackingService trackingService)
+        /// <param name="userService">The user service.</param>
+        public StopTracking(IUserService userService)
         {
-            this.trackingService = trackingService;
+            this.userService = userService;
         }
         
         /// <summary>
@@ -50,7 +50,7 @@
         /// <returns>State of the current command</returns>
         public override CommandState QueryState(CommandContext context)
         {
-            if (!this.trackingService.IsTrackingEnabled())
+            if (!this.userService.IsTrackingEnabled())
             {
                 return CommandState.Disabled;
             }
