@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\IConfigurationService.cs" />
     <Compile Include="DependencyInjection\Config.cs" />
     <Compile Include="DependencyInjection\ContainerFactory.cs" />
     <Compile Include="Pipelines\StartTracking\StartTracking.cs" />
