@@ -1,7 +1,7 @@
 ﻿namespace Unic.PackMan.Core.Pipelines.GeneratePackage
 {
     using System.Collections.Generic;
-    using Sitecore.Data.Items;
+    using Sitecore.Data;
     using Sitecore.Pipelines;
 
     /// <summary>
@@ -14,7 +14,7 @@
         /// </summary>
         public GeneratePackagePipelineArgs()
         {
-            this.PackageItems = new List<Item>();
+            this.PackageItems = new List<ItemUri>();
         }
 
         /// <summary>
@@ -47,7 +47,7 @@
         /// <value>
         /// The package items.
         /// </value>
-        public IList<Item> PackageItems { get; private set; }
+        public IList<ItemUri> PackageItems { get; private set; }
 
     }
 }

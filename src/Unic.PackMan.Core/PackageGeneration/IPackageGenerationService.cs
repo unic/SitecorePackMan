@@ -1,8 +1,8 @@
 ﻿namespace Unic.PackMan.Core.PackageGeneration
 {
     using System.Collections.Generic;
-    using Sitecore.Data.Items;
-
+    using Sitecore.Data;
+    
     /// <summary>
     /// Interface for the package generation service
     /// </summary>
@@ -16,6 +16,6 @@
         /// <param name="packageAuthor">The package author.</param>
         /// <param name="downloadPath">The download path.</param>
         /// <returns></returns>
-        bool GeneratePackage(IEnumerable<Item> items, string packageName, string packageAuthor, out string downloadPath);
+        bool GeneratePackage(IEnumerable<ItemUri> items, string packageName, string packageAuthor, out string downloadPath);
     }
 }

@@ -60,6 +60,7 @@
     <Compile Include="Pipelines\GeneratePackage\GenerateItemPackage.cs" />
     <Compile Include="Pipelines\GeneratePackage\GeneratePackagePipelineArgs.cs" />
     <Compile Include="Events\ItemHandler.cs" />
+    <Compile Include="Pipelines\GeneratePackage\GetItemsFromUserSession.cs" />
     <Compile Include="Pipelines\StartTracking\ClearTrackingList.cs" />
     <Compile Include="Pipelines\StartTracking\StartTracking.cs" />
     <Compile Include="Pipelines\StopTracking\StopTracking.cs" />

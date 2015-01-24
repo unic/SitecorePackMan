@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
     using Sitecore.Configuration;
-    using Sitecore.Data.Items;
+    using Sitecore.Data;
     using Sitecore.Install;
     using Sitecore.Install.Items;
     using Sitecore.Install.Zip;
@@ -22,7 +22,7 @@
         /// <param name="packageAuthor">The package author.</param>
         /// <param name="downloadPath">The download path.</param>
         /// <returns>The result of the generation</returns>
-        public bool GeneratePackage(IEnumerable<Item> items, string packageName, string packageAuthor, out string downloadPath)
+        public bool GeneratePackage(IEnumerable<ItemUri> items, string packageName, string packageAuthor, out string downloadPath)
         {
             downloadPath = null;
             
@@ -34,7 +34,7 @@
                                           {
                                               PackageName = packageName,
                                               Author = packageAuthor,
-                                              Version = DateTime.Now.ToString("yyyyMMddHHmmss")
+                                              Version = DateTime.UtcNow.ToString("yyyyMMddHHmmss")
                                           }
                                   };
 
@@ -43,7 +43,7 @@
 
                 foreach (var item in items)
                 {
-                    source.Entries.Add(new ItemReference(item.Uri, false).ToString());
+                    source.Entries.Add(new ItemReference(item, false).ToString());
                 }
 
                 project.Sources.Add(source);
