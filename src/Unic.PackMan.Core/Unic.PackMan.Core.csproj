@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="DependencyInjection\Config.cs" />
     <Compile Include="DependencyInjection\ContainerFactory.cs" />
+    <Compile Include="Events\ItemHandler.cs" />
     <Compile Include="Pipelines\StartTracking\StartTracking.cs" />
     <Compile Include="Pipelines\StopTracking\StopTracking.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

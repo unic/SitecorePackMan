@@ -1,6 +1,7 @@
 ﻿namespace Unic.PackMan.Core.DependencyInjection
 {
     using Ninject.Modules;
+    using Unic.PackMan.Core.Tracking;
     using Unic.PackMan.Core.User;
 
     /// <summary>
@@ -14,6 +15,7 @@
         public override void Load()
         {
             this.Bind<IUserService>().To<UserService>();
+            this.Bind<ITrackingService>().To<TrackingService>();
         }
     }
 }
