@@ -1,13 +1,16 @@
 ﻿namespace Unic.PackMan.Core.Tracking
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Text;
     using System.Web.UI;
     using Configuration;
     using Sitecore;
+    using Sitecore.Data;
     using Sitecore.Diagnostics;
     using Sitecore.Globalization;
+    using Sitecore.Install.Items;
     using Sitecore.Resources;
     using Sitecore.Shell.Applications.ContentManager.Galleries;
     using Sitecore.Web.UI.HtmlControls;
@@ -29,6 +32,7 @@
         {
             this.trackingService = trackingService;
         }
+
         public override void HandleMessage(Message message)
         {
             Assert.ArgumentNotNull((object)message, "message");
@@ -46,25 +50,31 @@
 
             var result = new StringBuilder();
             var tracking = this.trackingService.GetTracking();
-            if (tracking.Items.Any())
+            if (tracking != null)
             {
-                this.RenderTracking(result, tracking);
+                this.RenderTracking(result, tracking.Items.Where(item => !item.WithSubItems), Translate.Text("Tracked Items:"), "Office/32x32/arrow_right.png");
+                this.RenderTracking(result, tracking.Items.Where(item => item.WithSubItems), Translate.Text("Tracked Items with Subitems:"), "Office/32x32/arrow_fork.png");
             }
+            
             if (result.Length == 0)
             {
                 result.Append(Translate.Text("There are no items tracked."));
             }
+
             this.Links.Controls.Add(new LiteralControl(result.ToString()));
         }
-        
-        private void RenderTracking(StringBuilder result, Tracking tracking)
+
+        private void RenderTracking(StringBuilder result, IEnumerable<TrackedItem> items, string title, string icon)
         {
-            result.Append("<div style=\"font-weight:bold;padding:2px 0px 4px 0px\">" + Translate.Text("Tracked Items:") + "</div>");
-            foreach (var trackingItem in tracking.Items)
+            var itemList = items.ToList();
+            if (!itemList.Any()) return;
+
+            result.Append("<div class=\"scMenuHeader\"\">" + Images.GetImage(icon, 16, 16, "absmiddle", "0px 4px 0px 0px") + title + "</div>");
+
+            foreach (var trackingItem in itemList.OrderBy(item => item.Path))
             {
-                var icon = trackingItem.WithSubItems ? "Office/32x32/arrow_fork.png" : "Office/32x32/arrow_right.png";
-                result.Append("<a href=\"#\" class=\"scLink\" >" + Images.GetImage(icon, 16, 16, "absmiddle", "0px 4px 0px 0px")  + trackingItem.Uri + "</a>");
-                //result.Append("<a href=\"#\" class=\"scLink\" onclick='javascript:return scForm.invoke(\"item:load(id=" + trackingItem.Uri + ")\")'>" + Images.GetImage(part1.Appearance.Icon, 16, 16, "absmiddle", "0px 4px 0px 0px") + part1.DisplayName + " - [" + part1.Paths.Path + "]</a>");
+                var item = new ItemReference(new ItemUri(trackingItem.Uri), false);
+                result.Append("<a href=\"#\" class=\"scLink\" onclick='javascript:return scForm.invoke(\"item:load(id=" + item.ID + ",language=" + item.Language + ",version=" + item.Version + ")\")'>" + Images.GetImage(trackingItem.Icon, 16, 16, "absmiddle", "0px 4px 0px 0px") + trackingItem.DisplayName + " - [" + trackingItem.Path + "]</a>");
             }
         }
     }

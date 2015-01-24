@@ -32,7 +32,7 @@
                 return CommandState.Disabled;
             }
 
-            if (!this.trackingService.IsItemTracked(context.Items.FirstOrDefault()))
+            if (!this.trackingService.HasTrackedItems())
             {
                 return CommandState.Disabled;
             }

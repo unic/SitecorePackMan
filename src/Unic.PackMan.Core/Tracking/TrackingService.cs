@@ -64,6 +64,16 @@
         }
 
         /// <summary>
+        /// Determines whether any items are tracked.
+        /// </summary>
+        /// <returns>Whether any items are tracked.</returns>
+        public bool HasTrackedItems()
+        {
+            var data = this.GetTracking();
+            return data != null && data.Items.Any();
+        }
+
+        /// <summary>
         /// Adds the item to the track list.
         /// </summary>
         /// <param name="item">The item.</param>

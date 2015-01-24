@@ -1,10 +1,12 @@
 ﻿namespace Unic.PackMan.Core.Commands
 {
     using System.Collections.Specialized;
+    using Configuration;
     using Sitecore;
     using Sitecore.Pipelines;
     using Sitecore.Shell.Framework.Commands;
     using Sitecore.Web.UI.Sheer;
+    using Tracking;
     using Unic.PackMan.Core.Pipelines.GeneratePackage;
     using Unic.PackMan.Core.User;
 
@@ -18,20 +20,24 @@
         /// </summary>
         private readonly IUserService userService;
 
+        private readonly ITrackingService trackingService;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="GeneratePackage"/> class.
         /// </summary>
-        public GeneratePackage() : this(new UserService())
+        public GeneratePackage() : this(new UserService(), new TrackingService(new UserService(), new ConfigurationService()))
         {
             
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GeneratePackage"/> class.
+        /// Initializes a new instance of the <see cref="GeneratePackage" /> class.
         /// </summary>
         /// <param name="userService">The user service.</param>
-        public GeneratePackage(IUserService userService)
+        /// <param name="trackingService">The tracking service.</param>
+        public GeneratePackage(IUserService userService, ITrackingService trackingService)
         {
+            this.trackingService = trackingService;
             this.userService = userService;
         }
 
@@ -53,6 +59,11 @@
         public override CommandState QueryState(CommandContext context)
         {
             if (!this.userService.IsTrackingEnabled())
+            {
+                return CommandState.Disabled;
+            }
+
+            if (!this.trackingService.HasTrackedItems())
             {
                 return CommandState.Disabled;
             }

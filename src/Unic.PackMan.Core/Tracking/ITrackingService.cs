@@ -21,6 +21,12 @@
         bool IsItemTracked(Item item);
 
         /// <summary>
+        /// Determines whether any items are tracked.
+        /// </summary>
+        /// <returns>Whether any items are tracked.</returns>
+        bool HasTrackedItems();
+
+        /// <summary>
         /// Adds the item to the track list.
         /// </summary>
         /// <param name="item">The item.</param>
