@@ -5,5 +5,7 @@
         void StartTracking();
 
         void StopTracking();
+
+        bool IsTrackingEnabled();
     }
 }
