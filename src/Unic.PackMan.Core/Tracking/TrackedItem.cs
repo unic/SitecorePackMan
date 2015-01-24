@@ -14,6 +14,22 @@
         public string Uri { get; set; }
 
         /// <summary>
+        /// Gets or sets the display name.
+        /// </summary>
+        /// <value>
+        /// The display name.
+        /// </value>
+        public string DisplayName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the path.
+        /// </summary>
+        /// <value>
+        /// The path.
+        /// </value>
+        public string Path { get; set; }
+
+        /// <summary>
         /// Gets or sets a value indicating whether to add the item with subitems.
         /// </summary>
         /// <value>
