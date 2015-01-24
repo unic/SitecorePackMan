@@ -1,0 +1,346 @@
+----item----
+version: 1
+id: {B99F41DB-9A43-40C7-801E-FD1B94851DAD}
+database: core
+path: /sitecore/content/Applications/Content Editor/Ribbons/Chunks/PackMan/Tracked Items
+parent: {E5C0F757-77AC-4216-8F78-381705F1E9FA}
+name: Tracked Items
+master: {00000000-0000-0000-0000-000000000000}
+template: {19054D88-FED7-48AD-87CD-CF458590C303}
+templatekey: Large Gallery Button
+
+----field----
+field: {E792E033-3264-4F34-BEBF-B2BD82B0FC5A}
+name: Icon
+key: icon
+content-length: 22
+
+Apps/32x32/Ballons.png
+----field----
+field: {B6D7D860-0ABA-49DD-85D5-4D537646EF7F}
+name: Command
+key: command
+content-length: 15
+
+packman:tracked
+----field----
+field: {9383F6DD-2D09-40A4-8004-4F63125DBDF6}
+name: Gallery
+key: gallery
+content-length: 15
+
+Gallery.Tracked
+----field----
+field: {0A734AF1-CBD3-4896-8615-6374D2D5DCEE}
+name: Gallery Width
+key: gallery width
+content-length: 3
+
+400
+----field----
+field: {C13FE317-1F69-42D1-B8EF-EE783D372926}
+name: Gallery Height
+key: gallery height
+content-length: 3
+
+250
+----field----
+field: {BA3F86A2-4A1C-4D78-B63D-91C2779C1B5E}
+name: __Sortorder
+key: __sortorder
+content-length: 3
+
+100
+----field----
+field: {56776EDF-261C-4ABC-9FE7-70C618795239}
+name: __Help link
+key: __help link
+content-length: 7
+
+<link/>
+----field----
+field: {A4F985D9-98B3-4B52-AAAF-4344F6E747C6}
+name: __Workflow
+key: __workflow
+content-length: 0
+
+
+----version----
+language: da
+version: 1
+revision: 50af246b-660e-444e-a517-c265660bb3aa
+
+----field----
+field: {2AC65C2F-127B-43BC-8687-5689E1FB3D78}
+name: Header
+key: header
+content-length: 5
+
+Links
+----field----
+field: {81B23074-63AF-4A28-9B45-AB27B3B2F619}
+name: Tooltip
+key: tooltip
+content-length: 43
+
+Vis de elementer, der refereres til og fra.
+----field----
+field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
+name: __Display name
+key: __display name
+content-length: 5
+
+Links
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 35
+
+20141212T145114:635539926747175794Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+50af246b-660e-444e-a517-c265660bb3aa
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 35
+
+20141212T145114:635539926747175794Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin
+----version----
+language: de-DE
+version: 1
+revision: c83d2149-efef-4cc1-a558-b81b9d0c6b4a
+
+----field----
+field: {2AC65C2F-127B-43BC-8687-5689E1FB3D78}
+name: Header
+key: header
+content-length: 5
+
+Links
+----field----
+field: {81B23074-63AF-4A28-9B45-AB27B3B2F619}
+name: Tooltip
+key: tooltip
+content-length: 51
+
+Referenzierte Items und bezeichnete Items anzeigen.
+----field----
+field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
+name: __Display name
+key: __display name
+content-length: 5
+
+Links
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 35
+
+20141212T144952:635539925928914528Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+c83d2149-efef-4cc1-a558-b81b9d0c6b4a
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 35
+
+20141212T144952:635539925928914528Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin
+----version----
+language: en
+version: 1
+revision: ac9e93a1-5f57-4be6-b1e2-97c6a96e9c6e
+
+----field----
+field: {2AC65C2F-127B-43BC-8687-5689E1FB3D78}
+name: Header
+key: header
+content-length: 13
+
+Tracked Items
+----field----
+field: {81B23074-63AF-4A28-9B45-AB27B3B2F619}
+name: Tooltip
+key: tooltip
+content-length: 19
+
+Show tracked items.
+----field----
+field: {C8F93AFE-BFD4-4E8F-9C61-152559854661}
+name: __Valid from
+key: __valid from
+content-length: 15
+
+20060216T093623
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 15
+
+20060613T111324
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\Admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+ac9e93a1-5f57-4be6-b1e2-97c6a96e9c6e
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 35
+
+20150124T105118:635576934782937626Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {3E431DE1-525E-47A3-B6B0-1CCBEC3A8C98}
+name: __Workflow state
+key: __workflow state
+content-length: 0
+
+
+----version----
+language: ja-JP
+version: 1
+revision: 18b10974-4d8e-4c62-b20c-5be83f2c3f7d
+
+----field----
+field: {2AC65C2F-127B-43BC-8687-5689E1FB3D78}
+name: Header
+key: header
+content-length: 3
+
+リンク
+----field----
+field: {81B23074-63AF-4A28-9B45-AB27B3B2F619}
+name: Tooltip
+key: tooltip
+content-length: 12
+
+参照アイテムを表示します
+----field----
+field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
+name: __Display name
+key: __display name
+content-length: 3
+
+リンク
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 35
+
+20141212T145236:635539927569495642Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+18b10974-4d8e-4c62-b20c-5be83f2c3f7d
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 35
+
+20141212T145236:635539927569495642Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin
