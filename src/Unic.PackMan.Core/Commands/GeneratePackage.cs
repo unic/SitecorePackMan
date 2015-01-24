@@ -45,7 +45,13 @@
         {
             if (!args.IsPostBack)
             {
-                SheerResponse.Input(Translate.Text("Please enter package name"), Translate.Text("Unnamed Package"), @"^(?!\s*$).+", Translate.Text("Invalid package name"), 255);
+                SheerResponse.Input(
+                    Translate.Text("Please enter package name"),
+                    Translate.Text("Unnamed Package"),
+                    @"^(?!\s*$).+",
+                    Translate.Text("Invalid package name"),
+                    255,
+                    Translate.Text("Generate Package"));
 
                 args.WaitForPostBack();
             }
