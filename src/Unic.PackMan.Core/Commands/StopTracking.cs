@@ -1,5 +1,6 @@
 ﻿namespace Unic.PackMan.Core.Commands
 {
+    using Configuration;
     using Sitecore.Pipelines;
     using Sitecore.Shell.Framework.Commands;
     using Unic.PackMan.Core.Tracking;
@@ -20,7 +21,7 @@
         /// HINT: Use poor man dependency injection here, because the Sitecore factory does only seem to work for
         /// events and pipelines. Dear Sitecore devs, why??
         /// </summary>
-        public StopTracking() : this(new TrackingService(new UserService()))
+        public StopTracking() : this(new TrackingService(new UserService(), new ConfigurationService()))
         {
         }
 
