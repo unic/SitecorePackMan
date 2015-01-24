@@ -1,5 +1,6 @@
 ﻿namespace Unic.PackMan.Core.DependencyInjection
 {
+    using Configuration;
     using Ninject.Modules;
     using Unic.PackMan.Core.User;
 
@@ -14,6 +15,7 @@
         public override void Load()
         {
             this.Bind<IUserService>().To<UserService>();
+            this.Bind<IConfigurationService>().To<ConfigurationService>();
         }
     }
 }
