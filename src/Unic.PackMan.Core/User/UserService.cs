@@ -1,6 +1,6 @@
-﻿namespace Unic.PackMan.Core.Tracking
+﻿namespace Unic.PackMan.Core.User
 {
-    public class TrackingService : ITrackingService
+    public class UserService : IUserService
     {
         public void StartTracking()
         {

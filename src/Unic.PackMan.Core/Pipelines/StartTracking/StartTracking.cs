@@ -1,20 +1,20 @@
 ﻿namespace Unic.PackMan.Core.Pipelines.StartTracking
 {
     using Sitecore.Pipelines;
-    using Unic.PackMan.Core.Tracking;
+    using Unic.PackMan.Core.User;
 
     public class StartTracking
     {
-        private readonly ITrackingService trackingService;
+        private readonly IUserService userService;
 
-        public StartTracking(ITrackingService trackingService)
+        public StartTracking(IUserService userService)
         {
-            this.trackingService = trackingService;
+            this.userService = userService;
         }
 
         public void Process(PipelineArgs args)
         {
-            this.trackingService.StartTracking();
+            this.userService.StartTracking();
         }
     }
 }
