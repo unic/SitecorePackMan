@@ -1,8 +1,10 @@
 ﻿namespace Unic.PackMan.Core.Commands
 {
+    using System.Collections.Specialized;
+    using Sitecore.Globalization;
     using Sitecore.Pipelines;
     using Sitecore.Shell.Framework.Commands;
-    using Unic.PackMan.Core.Tracking;
+    using Sitecore.Web.UI.Sheer;
     using Unic.PackMan.Core.User;
 
     /// <summary>
@@ -39,8 +41,7 @@
         /// <param name="context">The context.</param>
         public override void Execute(CommandContext context)
         {
-            CorePipeline.Run("PackMan.StopTracking", new PipelineArgs());
-            Sitecore.Context.ClientPage.SendMessage(this, "item:refresh");
+            Sitecore.Context.ClientPage.Start(this, "Run", new NameValueCollection());
         }
 
         /// <summary>
@@ -56,6 +57,24 @@
             }
 
             return base.QueryState(context);
+        }
+
+        /// <summary>
+        /// Runs the short URL generation.
+        /// </summary>
+        /// <param name="args">The client pipeline arguments.</param>
+        protected void Run(ClientPipelineArgs args)
+        {
+            if (!args.IsPostBack)
+            {
+                SheerResponse.Confirm(Translate.Text("Are you sure you want to stop tracking? Tracked items will be lost !!"));
+                args.WaitForPostBack();
+            }
+            else if (args.Result == "yes")
+            {
+                CorePipeline.Run("PackMan.StopTracking", new PipelineArgs());
+                Sitecore.Context.ClientPage.SendMessage(this, "item:refresh");
+            }
         }
     }
 }
