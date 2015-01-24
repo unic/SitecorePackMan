@@ -50,6 +50,19 @@
         }
 
         /// <summary>
+        /// Determines whether a given item is currently tracked.
+        /// </summary>
+        /// <param name="item">The item.</param>
+        /// <returns>
+        /// Boolean value whether the item is currently tracked
+        /// </returns>
+        public bool IsItemTracked(Item item)
+        {
+            var data = this.GetTracking();
+            return data != null && data.Items.Any(i => i.Uri == item.Uri.ToString());
+        }
+
+        /// <summary>
         /// Adds the item to the track list.
         /// </summary>
         /// <param name="item">The item.</param>

@@ -14,6 +14,13 @@
         Tracking GetTracking();
 
         /// <summary>
+        /// Determines whether a given item is currently tracked.
+        /// </summary>
+        /// <param name="item">The item.</param>
+        /// <returns>Boolean value whether the item is currently tracked</returns>
+        bool IsItemTracked(Item item);
+
+        /// <summary>
         /// Adds the item to the track list.
         /// </summary>
         /// <param name="item">The item.</param>
