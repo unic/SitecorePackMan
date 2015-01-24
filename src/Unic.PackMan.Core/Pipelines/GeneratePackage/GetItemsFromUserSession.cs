@@ -1,8 +1,13 @@
 ﻿namespace Unic.PackMan.Core.Pipelines.GeneratePackage
 {
+    using Sitecore.Configuration;
     using Sitecore.Data;
+    using Sitecore.Data.Items;
     using Unic.PackMan.Core.Tracking;
 
+    /// <summary>
+    /// Adds the items of the last tracking session of the user
+    /// </summary>
     public class GetItemsFromUserSession
     {
         /// <summary>
@@ -31,11 +36,35 @@
                 var itemUri = new ItemUri(trackingItem.Uri);
                 if (!trackingItem.WithSubItems)
                 {
-                    args.PackageItems.Add(itemUri);
+                    if (!args.PackageItems.Contains(itemUri))
+                    {
+                        args.PackageItems.Add(itemUri);
+                    }
+
                     continue;
                 }
 
                 // Handle recursion stuff
+                var item = Factory.GetDatabase(itemUri.DatabaseName).GetItem(itemUri.ItemID);
+                this.AddItemWithChildren(item, args);
+            }
+        }
+
+        /// <summary>
+        /// Adds the item with children.
+        /// </summary>
+        /// <param name="item">The item.</param>
+        /// <param name="args">The arguments.</param>
+        public void AddItemWithChildren(Item item, GeneratePackagePipelineArgs args)
+        {
+            if (!args.PackageItems.Contains(item.Uri))
+            {
+                args.PackageItems.Add(item.Uri);
+            }
+
+            foreach (Item child in item.GetChildren())
+            {
+                this.AddItemWithChildren(child, args);
             }
         }
     }
