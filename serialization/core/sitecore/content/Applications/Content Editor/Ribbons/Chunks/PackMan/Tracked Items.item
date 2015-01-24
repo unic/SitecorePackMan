@@ -50,7 +50,7 @@ name: __Sortorder
 key: __sortorder
 content-length: 3
 
-100
+700
 ----field----
 field: {56776EDF-261C-4ABC-9FE7-70C618795239}
 name: __Help link
@@ -204,7 +204,7 @@ sitecore\admin
 ----version----
 language: en
 version: 1
-revision: ac9e93a1-5f57-4be6-b1e2-97c6a96e9c6e
+revision: 27b49c57-8b28-477e-847f-c1a712145a93
 
 ----field----
 field: {2AC65C2F-127B-43BC-8687-5689E1FB3D78}
@@ -254,14 +254,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-ac9e93a1-5f57-4be6-b1e2-97c6a96e9c6e
+27b49c57-8b28-477e-847f-c1a712145a93
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 35
 
-20150124T105118:635576934782937626Z
+20150124T111056:635576946560357655Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
