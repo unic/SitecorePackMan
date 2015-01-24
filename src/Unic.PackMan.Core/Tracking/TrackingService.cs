@@ -1,6 +1,7 @@
 ﻿namespace Unic.PackMan.Core.Tracking
 {
     using System.Linq;
+    using Configuration;
     using Newtonsoft.Json;
     using Sitecore.Data;
     using Sitecore.Data.Items;
@@ -10,9 +11,11 @@
     public class TrackingService : ITrackingService
     {
         private readonly IUserService userService;
+        private readonly IConfigurationService configurationService;
 
-        public TrackingService(IUserService userService)
+        public TrackingService(IUserService userService, IConfigurationService configurationService)
         {
+            this.configurationService = configurationService;
             this.userService = userService;
         }
 
@@ -28,7 +31,13 @@
             
             if (!this.userService.IsTrackingEnabled())
             {
-                Log.Info("Tracking is disabled, don't add the item", this);
+                Log.Warn("Tracking is disabled, don't add the item", this);
+                return;
+            }
+
+            if (!this.configurationService.IsItemIncluded(item))
+            {
+                Log.Debug("The item is not in the include list, don't add the item", this);
                 return;
             }
 
@@ -43,7 +52,13 @@
 
             if (!this.userService.IsTrackingEnabled())
             {
-                Log.Info("Tracking is disabled, don't add the item", this);
+                Log.Warn("Tracking is disabled, don't remove the item", this);
+                return;
+            }
+
+            if (!this.configurationService.IsItemIncluded(item))
+            {
+                Log.Debug("The item is not in the include list, don't remove the item", this);
                 return;
             }
 

@@ -55,6 +55,11 @@
     <Compile Include="Configuration\IConfigurationService.cs" />
     <Compile Include="DependencyInjection\Config.cs" />
     <Compile Include="DependencyInjection\ContainerFactory.cs" />
+    <Compile Include="Events\ItemHandler.cs" />
+    <Compile Include="Pipelines\AddItem\AddItemPipelineArgs.cs" />
+    <Compile Include="Pipelines\AddItem\AddItemToTrack.cs" />
+    <Compile Include="Pipelines\RemoveItem\RemoveItemFromTrack.cs" />
+    <Compile Include="Pipelines\RemoveItem\RemoveItemPipelineArgs.cs" />
     <Compile Include="PackageGeneration\IPackageGenerationService.cs" />
     <Compile Include="PackageGeneration\PackageGenerationService.cs" />
     <Compile Include="Pipelines\GeneratePackage\GenerateItemPackage.cs" />
