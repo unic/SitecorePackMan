@@ -47,7 +47,13 @@
         {
             if (this.trackedItems == null) return null;
 
-            var trackingItem = this.trackedItems.FirstOrDefault(x => new ItemUri(x.Uri).DatabaseName == item.Database.Name && new ItemUri(x.Uri).ItemID == item.ID);
+            var trackingItem = this.trackedItems.FirstOrDefault(
+                x =>
+                    {
+                        var uri = new ItemUri(x.Uri);
+                        return uri.DatabaseName == item.Database.Name && uri.ItemID == item.ID;
+                    });
+
             if (trackingItem == null) return null;
 
             if (trackingItem.WithSubItems)
