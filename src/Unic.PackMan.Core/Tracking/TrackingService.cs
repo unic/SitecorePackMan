@@ -11,7 +11,10 @@
     public class TrackingService : ITrackingService
     {
         private readonly IUserService userService;
+
         private readonly IConfigurationService configurationService;
+
+        private readonly object lockObject = new object();
 
         public TrackingService(IUserService userService, IConfigurationService configurationService)
         {
@@ -41,9 +44,12 @@
                 return;
             }
 
-            var data = this.GetTracking() ?? new Tracking();
-            data.Items.Add(new TrackedItem { Uri = item.Uri.ToString(), WithSubItems = withSubItems });
-            this.userService.SaveTrackingList(JsonConvert.SerializeObject(data));
+            lock (this.lockObject)
+            {
+                var data = this.GetTracking() ?? new Tracking();
+                data.Items.Add(new TrackedItem { Uri = item.Uri.ToString(), WithSubItems = withSubItems });
+                this.userService.SaveTrackingList(JsonConvert.SerializeObject(data));
+            }
         }
 
         public void RemoveItemFromTrack(Item item)
@@ -62,16 +68,19 @@
                 return;
             }
 
-            var data = this.GetTracking();
-            if (data == null) return;
-
-            var itemsToRemove = data.Items.Where(i => new ItemUri(i.Uri).ItemID.ToString() == item.ID.ToString()).ToList();
-            foreach (var itemToRemove in itemsToRemove)
+            lock (this.lockObject)
             {
-                data.Items.Remove(itemToRemove);
+                var data = this.GetTracking();
+                if (data == null) return;
+
+                var itemsToRemove = data.Items.Where(i => new ItemUri(i.Uri).ItemID.ToString() == item.ID.ToString()).ToList();
+                foreach (var itemToRemove in itemsToRemove)
+                {
+                    data.Items.Remove(itemToRemove);
+                }
+
+                this.userService.SaveTrackingList(JsonConvert.SerializeObject(data));
             }
-            
-            this.userService.SaveTrackingList(JsonConvert.SerializeObject(data));
         }
     }
 }
