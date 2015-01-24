@@ -17,5 +17,20 @@
             CorePipeline.Run("PackMan.StartTracking", new PipelineArgs());
             this.RefreshItem();
         }
+
+        /// <summary>
+        /// Get the state of the current command.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <returns>State of the command.</returns>
+        public override CommandState QueryState(CommandContext context)
+        {
+            if (this.UserService.IsTrackingEnabled())
+            {
+                return CommandState.Disabled;
+            }
+
+            return CommandState.Enabled;
+        }
     }
 }

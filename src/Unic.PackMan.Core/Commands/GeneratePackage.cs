@@ -45,7 +45,7 @@
         {
             if (!args.IsPostBack)
             {
-                SheerResponse.Input(Translate.Text("Please enter package name"), Translate.Text("Unnamed Package"));
+                SheerResponse.Input("Please enter package name", "Unnamed Package");
                 args.WaitForPostBack();
             }
             else if (args.HasResult)

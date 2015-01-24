@@ -58,7 +58,7 @@
                 return CommandState.Disabled;
             }
 
-            return base.QueryState(context);
+            return CommandState.Enabled;
         }
 
         /// <summary>
