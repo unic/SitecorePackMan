@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject, Version=3.0.1.10, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Ninject.3.0.1.10\lib\net45-full\Ninject.dll</HintPath>
@@ -38,6 +41,7 @@
       <HintPath>..\..\lib\Sitecore.Kernel.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
@@ -47,17 +51,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\ConfigurationService.cs" />
+    <Compile Include="Configuration\IConfigurationService.cs" />
     <Compile Include="DependencyInjection\Config.cs" />
     <Compile Include="DependencyInjection\ContainerFactory.cs" />
     <Compile Include="PackageGeneration\IPackageGenerationService.cs" />
     <Compile Include="PackageGeneration\PackageGenerationService.cs" />
     <Compile Include="Pipelines\GeneratePackage\GenerateItemPackage.cs" />
     <Compile Include="Pipelines\GeneratePackage\GeneratePackagePipelineArgs.cs" />
+    <Compile Include="Events\ItemHandler.cs" />
+    <Compile Include="Pipelines\StartTracking\ClearTrackingList.cs" />
     <Compile Include="Pipelines\StartTracking\StartTracking.cs" />
     <Compile Include="Pipelines\StopTracking\StopTracking.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tracking\TrackedItem.cs" />
+    <Compile Include="Tracking\Tracking.cs" />
     <Compile Include="Tracking\ITrackingService.cs" />
     <Compile Include="Tracking\TrackingService.cs" />
+    <Compile Include="User\IUserService.cs" />
+    <Compile Include="User\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\StartTracking.cs" />

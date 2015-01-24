@@ -1,9 +1,11 @@
 ﻿namespace Unic.PackMan.Core.Tracking
 {
+    using Sitecore.Data.Items;
+
     public interface ITrackingService
     {
-        void StartTracking();
+        Tracking GetTracking();
 
-        void StopTracking();
+        void AddItemToTrack(Item item, bool withSubItems = false);
     }
 }

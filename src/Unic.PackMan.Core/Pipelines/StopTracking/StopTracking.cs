@@ -1,20 +1,20 @@
 ﻿namespace Unic.PackMan.Core.Pipelines.StopTracking
 {
     using Sitecore.Pipelines;
-    using Unic.PackMan.Core.Tracking;
+    using Unic.PackMan.Core.User;
 
     public class StopTracking
     {
-        private readonly ITrackingService trackingService;
+        private readonly IUserService userService;
 
-        public StopTracking(ITrackingService trackingService)
+        public StopTracking(IUserService userService)
         {
-            this.trackingService = trackingService;
+            this.userService = userService;
         }
 
         public void Process(PipelineArgs args)
         {
-            this.trackingService.StopTracking();
+            this.userService.StopTracking();
         }
     }
 }
