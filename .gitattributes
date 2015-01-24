@@ -1,0 +1,4 @@
+* text=auto
+
+# Sitecore serialization files should not be nomalized
+*.item    binary
