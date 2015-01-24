@@ -27,7 +27,7 @@
         /// <param name="args">The arguments.</param>
         public void Process(AddItemPipelineArgs args)
         {
-            this.trackingService.AddItemToTrack(args.Item, args.AddWithSubItems);
+            this.trackingService.TrackItem(args.Item, args.AddWithSubItems);
         }
     }
 }

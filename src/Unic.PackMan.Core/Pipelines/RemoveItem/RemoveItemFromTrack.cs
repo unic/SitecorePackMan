@@ -27,7 +27,7 @@
         /// <param name="args">The arguments.</param>
         public void Process(RemoveItemPipelineArgs args)
         {
-            this.trackingService.RemoveItemFromTrack(args.Item);
+            this.trackingService.UntrackItem(args.Item);
         }
     }
 }

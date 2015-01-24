@@ -1,11 +1,5 @@
 ﻿namespace Unic.PackMan.Core.Tracking
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Web.UI;
-    using Configuration;
     using Sitecore;
     using Sitecore.Data;
     using Sitecore.Diagnostics;
@@ -15,41 +9,64 @@
     using Sitecore.Shell.Applications.ContentManager.Galleries;
     using Sitecore.Web.UI.HtmlControls;
     using Sitecore.Web.UI.Sheer;
-    using User;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Web.UI;
+    using Unic.PackMan.Core.DependencyInjection;
 
+    /// <summary>
+    /// Code behind of the view that shows currently tracked items.
+    /// </summary>
     public class TrackedItemsForm : GalleryForm
     {
-        protected Border Links;
-
+        /// <summary>
+        /// The tracking service
+        /// </summary>
         private readonly ITrackingService trackingService;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TrackedItemsForm"/> class.
+        /// </summary>
         public TrackedItemsForm()
-            : this(new TrackingService(new UserService(), new ConfigurationService()))
         {
+            this.trackingService = ContainerFactory.Resolve<ITrackingService>();
         }
 
-        public TrackedItemsForm(ITrackingService trackingService)
-        {
-            this.trackingService = trackingService;
-        }
+        /// <summary>
+        /// Gets or sets the links.
+        /// </summary>
+        /// <value>
+        /// The links.
+        /// </value>
+        protected Border Links { get; set; }
 
+        /// <summary>
+        /// Handles the message.
+        /// </summary>
+        /// <param name="message">The message.</param>
         public override void HandleMessage(Message message)
         {
-            Assert.ArgumentNotNull((object)message, "message");
+            Assert.ArgumentNotNull(message, "message");
             this.Invoke(message, true);
             message.CancelBubble = true;
             message.CancelDispatch = true;
         }
 
-        protected override void OnLoad(EventArgs e)
+        /// <summary>
+        /// Raises the <see cref="E:Load" /> event.
+        /// </summary>
+        /// <param name="args">The <see cref="EventArgs"/> instance containing the event data.</param>
+        protected override void OnLoad(EventArgs args)
         {
-            Assert.ArgumentNotNull(e, "e");
-            base.OnLoad(e);
+            Assert.ArgumentNotNull(args, "args");
+            base.OnLoad(args);
 
             if (Context.ClientPage.IsEvent) return;
 
             var result = new StringBuilder();
-            var tracking = this.trackingService.GetTracking();
+            var tracking = this.trackingService.GetTrackingData();
             if (tracking != null)
             {
                 this.RenderTracking(result, tracking.Items.Where(item => !item.WithSubItems), Translate.Text("Tracked Items:"), "Office/32x32/arrow_right.png");
@@ -64,6 +81,13 @@
             this.Links.Controls.Add(new LiteralControl(result.ToString()));
         }
 
+        /// <summary>
+        /// Renders the tracking.
+        /// </summary>
+        /// <param name="result">The result.</param>
+        /// <param name="items">The items.</param>
+        /// <param name="title">The title.</param>
+        /// <param name="icon">The icon.</param>
         private void RenderTracking(StringBuilder result, IEnumerable<TrackedItem> items, string title, string icon)
         {
             var itemList = items.ToList();

@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="Commands\AddItem.cs" />
     <Compile Include="Commands\AddItemWithSubitems.cs" />
+    <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Commands\RemoveItem.cs" />
     <Compile Include="Commands\TrackedItems.cs" />
     <Compile Include="Configuration\ConfigurationService.cs" />
@@ -73,13 +74,13 @@
     <Compile Include="Pipelines\GeneratePackage\GeneratePackagePipelineArgs.cs" />
     <Compile Include="Events\ItemHandler.cs" />
     <Compile Include="Pipelines\GeneratePackage\GetItemsFromUserSession.cs" />
-    <Compile Include="Pipelines\StartTracking\ClearTrackingList.cs" />
+    <Compile Include="Pipelines\StopTracking\ClearTrackingList.cs" />
     <Compile Include="Pipelines\StartTracking\StartTracking.cs" />
     <Compile Include="Pipelines\StopTracking\StopTracking.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tracking\TrackedItem.cs" />
     <Compile Include="Tracking\TrackedItemsForm.cs" />
-    <Compile Include="Tracking\Tracking.cs" />
+    <Compile Include="Tracking\TrackingData.cs" />
     <Compile Include="Tracking\ITrackingService.cs" />
     <Compile Include="Tracking\TrackingService.cs" />
     <Compile Include="User\IUserService.cs" />

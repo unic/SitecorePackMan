@@ -14,8 +14,7 @@
         /// <param name="items">The items.</param>
         /// <param name="packageName">Name of the package.</param>
         /// <param name="packageAuthor">The package author.</param>
-        /// <param name="downloadPath">The download path.</param>
-        /// <returns></returns>
-        bool GeneratePackage(IEnumerable<ItemUri> items, string packageName, string packageAuthor, out string downloadPath);
+        /// <returns>Download path, null if unsuccessfull</returns>
+        string GeneratePackage(IEnumerable<ItemUri> items, string packageName, string packageAuthor);
     }
 }

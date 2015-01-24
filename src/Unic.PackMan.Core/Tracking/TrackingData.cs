@@ -5,12 +5,12 @@
     /// <summary>
     /// Tracking model
     /// </summary>
-    public class Tracking
+    public class TrackingData
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Tracking"/> class.
+        /// Initializes a new instance of the <see cref="TrackingData"/> class.
         /// </summary>
-        public Tracking()
+        public TrackingData()
         {
             this.Items = new List<TrackedItem>();
         }

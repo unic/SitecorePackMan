@@ -20,12 +20,9 @@
         /// <param name="items">The items.</param>
         /// <param name="packageName">Name of the package.</param>
         /// <param name="packageAuthor">The package author.</param>
-        /// <param name="downloadPath">The download path.</param>
-        /// <returns>The result of the generation</returns>
-        public bool GeneratePackage(IEnumerable<ItemUri> items, string packageName, string packageAuthor, out string downloadPath)
+        /// <returns>Download path</returns>
+        public virtual string GeneratePackage(IEnumerable<ItemUri> items, string packageName, string packageAuthor)
         {
-            downloadPath = null;
-            
             try
             {
                 var project = new PackageProject
@@ -50,16 +47,14 @@
                 using (new Sitecore.SecurityModel.SecurityDisabler())
                 {
                     WritePackage(project, filePath);
-                    downloadPath = filePath;
+                    return filePath;
                 }
             }
             catch (Exception ex)
             {
                 Sitecore.Diagnostics.Log.Error(ex.Message, ex, this);
-                return false;
+                return null;
             }
-
-            return true;
         }
 
         /// <summary>

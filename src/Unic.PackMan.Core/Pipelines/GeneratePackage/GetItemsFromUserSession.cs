@@ -30,7 +30,7 @@
         /// <param name="args">The arguments.</param>
         public void Process(GeneratePackagePipelineArgs args)
         {
-            var tracking = this.trackingService.GetTracking();
+            var tracking = this.trackingService.GetTrackingData();
             foreach (var trackingItem in tracking.Items)
             {
                 var itemUri = new ItemUri(trackingItem.Uri);
@@ -44,14 +44,14 @@
                     continue;
                 }
 
-                // Handle recursion stuff
+                // load item and iterate through all children
                 var item = Factory.GetDatabase(itemUri.DatabaseName).GetItem(itemUri.ItemID);
                 this.AddItemWithChildren(item, args);
             }
         }
 
         /// <summary>
-        /// Adds the item with children.
+        /// Adds the item with children recursively.
         /// </summary>
         /// <param name="item">The item.</param>
         /// <param name="args">The arguments.</param>

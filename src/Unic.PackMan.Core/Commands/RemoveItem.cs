@@ -1,53 +1,39 @@
 ﻿namespace Unic.PackMan.Core.Commands
 {
-    using System.Linq;
     using Pipelines.RemoveItem;
     using Sitecore.Diagnostics;
     using Sitecore.Pipelines;
     using Sitecore.Shell.Framework.Commands;
-    using Unic.PackMan.Core.Configuration;
-    using Unic.PackMan.Core.Tracking;
-    using Unic.PackMan.Core.User;
+    using System.Linq;
 
-    public class RemoveItem : Command
+    /// <summary>
+    /// Manually remove an item from the tracking list.
+    /// </summary>
+    public class RemoveItem : CommandBase
     {
         /// <summary>
-        /// The user service
+        /// Executes the specified context.
         /// </summary>
-        private readonly IUserService userService;
-
-        private readonly ITrackingService trackingService;
-
-        public RemoveItem()
-            : this(new TrackingService(new UserService(), new ConfigurationService()), new UserService())
-        {
-        }
-
-        public RemoveItem(ITrackingService trackingService, IUserService userService)
-        {
-            this.trackingService = trackingService;
-            this.userService = userService;
-        }
-
+        /// <param name="context">The context.</param>
         public override void Execute(CommandContext context)
         {
             var item = context.Items.FirstOrDefault();
             Assert.IsNotNull(item, "Item must not be null");
 
-            var pipelineArgs = new RemoveItemPipelineArgs {Item = item};
+            var pipelineArgs = new RemoveItemPipelineArgs { Item = item };
             CorePipeline.Run("PackMan.RemoveItem", pipelineArgs);
 
-            Sitecore.Context.ClientPage.SendMessage(this, "item:refresh");
+            this.RefreshItem();
         }
 
+        /// <summary>
+        /// Get the state of the current command.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <returns>State of the command.</returns>
         public override CommandState QueryState(CommandContext context)
         {
-            if (!this.userService.IsTrackingEnabled())
-            {
-                return CommandState.Disabled;
-            }
-
-            if (!this.trackingService.IsItemTracked(context.Items.FirstOrDefault()))
+            if (!this.TrackingService.IsItemTracked(context.Items.FirstOrDefault()))
             {
                 return CommandState.Disabled;
             }

@@ -8,10 +8,10 @@
     public interface ITrackingService
     {
         /// <summary>
-        /// Gets the tracking.
+        /// Gets the tracking data.
         /// </summary>
-        /// <returns>Current tracking object</returns>
-        Tracking GetTracking();
+        /// <returns>Current tracking data object</returns>
+        TrackingData GetTrackingData();
 
         /// <summary>
         /// Determines whether a given item is currently tracked.
@@ -27,16 +27,16 @@
         bool HasTrackedItems();
 
         /// <summary>
-        /// Adds the item to the track list.
+        /// Adds the item to the tracking list.
         /// </summary>
         /// <param name="item">The item.</param>
         /// <param name="withSubItems">if set to <c>true</c> the items should be added with subitems.</param>
-        void AddItemToTrack(Item item, bool withSubItems = false);
+        void TrackItem(Item item, bool withSubItems = false);
 
         /// <summary>
-        /// Removes the item from the track list.
+        /// Removes the item from the tracking list.
         /// </summary>
         /// <param name="item">The item.</param>
-        void RemoveItemFromTrack(Item item);
+        void UntrackItem(Item item);
     }
 }

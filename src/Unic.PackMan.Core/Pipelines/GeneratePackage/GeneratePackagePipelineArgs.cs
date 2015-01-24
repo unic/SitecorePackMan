@@ -48,6 +48,5 @@
         /// The package items.
         /// </value>
         public IList<ItemUri> PackageItems { get; private set; }
-
     }
 }

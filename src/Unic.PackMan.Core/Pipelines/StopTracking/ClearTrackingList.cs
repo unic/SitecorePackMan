@@ -1,4 +1,4 @@
-﻿namespace Unic.PackMan.Core.Pipelines.StartTracking
+﻿namespace Unic.PackMan.Core.Pipelines.StopTracking
 {
     using Sitecore.Pipelines;
     using Unic.PackMan.Core.User;
@@ -28,7 +28,7 @@
         /// <param name="args">The arguments.</param>
         public void Process(PipelineArgs args)
         {
-            this.userService.SaveTrackingList(string.Empty);
+            this.userService.SaveTrackingData(string.Empty);
         }
     }
 }

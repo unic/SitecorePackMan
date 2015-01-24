@@ -3,7 +3,6 @@
     using System.Linq;
     using Configuration;
     using Newtonsoft.Json;
-    using Sitecore.Data;
     using Sitecore.Data.Items;
     using Sitecore.Diagnostics;
     using Unic.PackMan.Core.User;
@@ -44,10 +43,10 @@
         /// Gets the tracking.
         /// </summary>
         /// <returns>Current tracking object</returns>
-        public Tracking GetTracking()
+        public virtual TrackingData GetTrackingData()
         {
-            var data = this.userService.GetTrackingList();
-            return string.IsNullOrWhiteSpace(data) ? null : JsonConvert.DeserializeObject<Tracking>(data);
+            var data = this.userService.GetTrackingData();
+            return string.IsNullOrWhiteSpace(data) ? null : JsonConvert.DeserializeObject<TrackingData>(data);
         }
 
         /// <summary>
@@ -57,9 +56,9 @@
         /// <returns>
         /// Boolean value whether the item is currently tracked
         /// </returns>
-        public bool IsItemTracked(Item item)
+        public virtual bool IsItemTracked(Item item)
         {
-            var data = this.GetTracking();
+            var data = this.GetTrackingData();
             return data != null && data.Items.Any(i => i.Uri == UriHelper.GetUriWithoutQuery(item.Uri.ToString()));
         }
 
@@ -67,9 +66,9 @@
         /// Determines whether any items are tracked.
         /// </summary>
         /// <returns>Whether any items are tracked.</returns>
-        public bool HasTrackedItems()
+        public virtual bool HasTrackedItems()
         {
-            var data = this.GetTracking();
+            var data = this.GetTrackingData();
             return data != null && data.Items.Any();
         }
 
@@ -78,7 +77,7 @@
         /// </summary>
         /// <param name="item">The item.</param>
         /// <param name="withSubItems">if set to <c>true</c> the items should be added with subitems.</param>
-        public void AddItemToTrack(Item item, bool withSubItems = false)
+        public virtual void TrackItem(Item item, bool withSubItems = false)
         {
             Assert.ArgumentNotNull(item, "item");
             
@@ -96,7 +95,7 @@
 
             lock (this.lockObject)
             {
-                var data = this.GetTracking() ?? new Tracking();
+                var data = this.GetTrackingData() ?? new TrackingData();
                 foreach (var existingItem in data.Items.Where(i => i.Uri == UriHelper.GetUriWithoutQuery(item.Uri.ToString())).ToList())
                 {
                     data.Items.Remove(existingItem);
@@ -111,7 +110,7 @@
                             WithSubItems = withSubItems
                         });
 
-                this.userService.SaveTrackingList(JsonConvert.SerializeObject(data));
+                this.userService.SaveTrackingData(JsonConvert.SerializeObject(data));
             }
         }
 
@@ -119,7 +118,7 @@
         /// Removes the item from the track list.
         /// </summary>
         /// <param name="item">The item.</param>
-        public void RemoveItemFromTrack(Item item)
+        public virtual void UntrackItem(Item item)
         {
             Assert.ArgumentNotNull(item, "item");
 
@@ -137,16 +136,15 @@
 
             lock (this.lockObject)
             {
-                var data = this.GetTracking();
+                var data = this.GetTrackingData();
                 if (data == null) return;
 
-                var itemsToRemove = data.Items.Where(i => i.Uri == UriHelper.GetUriWithoutQuery(item.Uri.ToString())).ToList();
-                foreach (var itemToRemove in itemsToRemove)
+                foreach (var itemToRemove in data.Items.Where(i => i.Uri == UriHelper.GetUriWithoutQuery(item.Uri.ToString())).ToList())
                 {
                     data.Items.Remove(itemToRemove);
                 }
 
-                this.userService.SaveTrackingList(JsonConvert.SerializeObject(data));
+                this.userService.SaveTrackingData(JsonConvert.SerializeObject(data));
             }
         }
     }

@@ -19,13 +19,13 @@
         /// Saves the tracking list.
         /// </summary>
         /// <param name="data">The data.</param>
-        void SaveTrackingList(string data);
+        void SaveTrackingData(string data);
 
         /// <summary>
         /// Gets the tracking list.
         /// </summary>
         /// <returns>The track list</returns>
-        string GetTrackingList();
+        string GetTrackingData();
 
         /// <summary>
         /// Determines whether the tracking is enabled.

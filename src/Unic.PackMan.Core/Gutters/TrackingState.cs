@@ -1,14 +1,12 @@
 ﻿namespace Unic.PackMan.Core.Gutters
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using Sitecore.Data;
     using Sitecore.Data.Items;
     using Sitecore.Globalization;
     using Sitecore.Shell.Applications.ContentEditor.Gutters;
-    using Unic.PackMan.Core.Configuration;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Unic.PackMan.Core.DependencyInjection;
     using Unic.PackMan.Core.Tracking;
-    using Unic.PackMan.Core.User;
     using Unic.PackMan.Core.Utilities;
 
     /// <summary>
@@ -22,20 +20,11 @@
         private readonly IList<TrackedItem> trackedItems;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TrackingState"/> class.
+        /// Initializes a new instance of the <see cref="TrackingState" /> class.
         /// </summary>
         public TrackingState()
-            : this(new TrackingService(new UserService(), new ConfigurationService()))
         {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TrackingState"/> class.
-        /// </summary>
-        /// <param name="trackingService">The tracking service.</param>
-        public TrackingState(ITrackingService trackingService)
-        {
-            var tracking = trackingService.GetTracking();
+            var tracking = ContainerFactory.Resolve<ITrackingService>().GetTrackingData();
             if (tracking != null) this.trackedItems = tracking.Items;
         }
 

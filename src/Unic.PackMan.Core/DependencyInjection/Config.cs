@@ -16,10 +16,10 @@
         /// </summary>
         public override void Load()
         {
-            this.Bind<IUserService>().To<UserService>();
+            this.Bind<IUserService>().To<UserService>().InSingletonScope();
             this.Bind<ITrackingService>().To<TrackingService>();
-            this.Bind<IConfigurationService>().To<ConfigurationService>();
-            this.Bind<IPackageGenerationService>().To<PackageGenerationService>();
+            this.Bind<IConfigurationService>().To<ConfigurationService>().InSingletonScope();
+            this.Bind<IPackageGenerationService>().To<PackageGenerationService>().InSingletonScope();
         }
     }
 }

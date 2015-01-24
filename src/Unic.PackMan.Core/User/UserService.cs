@@ -51,7 +51,7 @@
         /// Saves the tracking list.
         /// </summary>
         /// <param name="data">The data.</param>
-        public void SaveTrackingList(string data)
+        public virtual void SaveTrackingData(string data)
         {
             this.SetCustomProperty(TrackingListProfileKey, data);
         }
@@ -62,7 +62,7 @@
         /// <returns>
         /// The track list
         /// </returns>
-        public string GetTrackingList()
+        public virtual string GetTrackingData()
         {
             return this.GetCustomProperty(TrackingListProfileKey);
         }
@@ -73,7 +73,7 @@
         /// <returns>
         /// Boolean value whether tracking is enabled
         /// </returns>
-        public bool IsTrackingEnabled()
+        public virtual bool IsTrackingEnabled()
         {
             return this.GetCustomProperty(TrackingEnabledProfileKey) == true.ToString();
         }

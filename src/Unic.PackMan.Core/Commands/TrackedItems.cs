@@ -1,38 +1,20 @@
 ﻿namespace Unic.PackMan.Core.Commands
 {
-    using System.Linq;
-    using Configuration;
     using Sitecore.Shell.Framework.Commands;
-    using Tracking;
-    using User;
 
-    public class TrackedItems : Command
+    /// <summary>
+    /// Command to show all the currently tracked items.
+    /// </summary>
+    public class TrackedItems : CommandBase
     {
-        private readonly IUserService userService;
-        private readonly ITrackingService trackingService;
-
-        public TrackedItems() : this(new UserService(), new TrackingService(new UserService(), new ConfigurationService()))
-        {
-        }
-
-        public TrackedItems(IUserService userService, ITrackingService trackingService)
-        {
-            this.userService = userService;
-            this.trackingService = trackingService;
-        }
-
-        public override void Execute(CommandContext context)
-        {
-        }
-
+        /// <summary>
+        /// Get the state of the current command.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <returns>State of the command.</returns>
         public override CommandState QueryState(CommandContext context)
         {
-            if (!this.userService.IsTrackingEnabled())
-            {
-                return CommandState.Disabled;
-            }
-
-            if (!this.trackingService.HasTrackedItems())
+            if (!this.TrackingService.HasTrackedItems())
             {
                 return CommandState.Disabled;
             }

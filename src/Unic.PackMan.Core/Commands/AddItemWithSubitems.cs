@@ -5,24 +5,16 @@
     using Sitecore.Diagnostics;
     using Sitecore.Pipelines;
     using Sitecore.Shell.Framework.Commands;
-    using Unic.PackMan.Core.User;
 
-    public class AddItemWithSubitems : Command
+    /// <summary>
+    /// Command to manually add an item to tracking list with subitems.
+    /// </summary>
+    public class AddItemWithSubitems : CommandBase
     {
         /// <summary>
-        /// The user service
+        /// Executes the specified context.
         /// </summary>
-        private readonly IUserService userService;
-
-        public AddItemWithSubitems() : this(new UserService())
-        {
-        }
-
-        public AddItemWithSubitems(IUserService userService)
-        {
-            this.userService = userService;
-        }
-        
+        /// <param name="context">The context.</param>
         public override void Execute(CommandContext context)
         {
             var item = context.Items.FirstOrDefault();
@@ -31,17 +23,7 @@
             var pipelineArgs = new AddItemPipelineArgs { Item = item, AddWithSubItems = true };
             CorePipeline.Run("PackMan.AddItem", pipelineArgs);
 
-            Sitecore.Context.ClientPage.SendMessage(this, "item:refresh");
-        }
-
-        public override CommandState QueryState(CommandContext context)
-        {
-            if (!this.userService.IsTrackingEnabled())
-            {
-                return CommandState.Disabled;
-            }
-
-            return base.QueryState(context);
+            this.RefreshItem();
         }
     }
 }

@@ -13,14 +13,24 @@
         /// <summary>
         /// The kernel
         /// </summary>
-        private readonly IKernel kernel;
+        private static readonly IKernel Kernel;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ContainerFactory"/> class.
+        /// Initializes static members of the <see cref="ContainerFactory"/> class.
         /// </summary>
-        public ContainerFactory()
+        static ContainerFactory()
         {
-            this.kernel = new StandardKernel(new INinjectModule[] { new Config() });
+            Kernel = new StandardKernel(new INinjectModule[] { new Config() });
+        }
+
+        /// <summary>
+        /// Resolves an instance from the container.
+        /// </summary>
+        /// <typeparam name="T">Type to resolve</typeparam>
+        /// <returns>Resolved instance of type</returns>
+        public static T Resolve<T>()
+        {
+            return Kernel.Get<T>();
         }
 
         /// <summary>
@@ -30,7 +40,7 @@
         /// <returns>Resolved instance of type</returns>
         public object GetObject(string identifier)
         {
-            return this.kernel.Get(Type.GetType(identifier));
+            return Kernel.Get(Type.GetType(identifier));
         }
     }
 }

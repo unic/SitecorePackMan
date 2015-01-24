@@ -30,15 +30,7 @@
         {
             if (!args.PackageItems.Any()) return;
 
-            string downloadPath;
-            if (this.packageGenerationService.GeneratePackage(
-                args.PackageItems,
-                args.PackageName,
-                args.PackageAuthor,
-                out downloadPath))
-            {
-                args.DownloadPath = downloadPath;
-            }
+            args.DownloadPath = this.packageGenerationService.GeneratePackage(args.PackageItems, args.PackageName, args.PackageAuthor);
         }
     }
 }
