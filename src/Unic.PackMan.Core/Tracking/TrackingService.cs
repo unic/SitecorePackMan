@@ -8,26 +8,52 @@
     using Sitecore.Diagnostics;
     using Unic.PackMan.Core.User;
 
+    /// <summary>
+    /// Service class for the tracking logic
+    /// </summary>
     public class TrackingService : ITrackingService
     {
+        /// <summary>
+        /// The user service
+        /// </summary>
         private readonly IUserService userService;
 
+        /// <summary>
+        /// The configuration service
+        /// </summary>
         private readonly IConfigurationService configurationService;
 
+        /// <summary>
+        /// The lock object
+        /// </summary>
         private readonly object lockObject = new object();
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TrackingService"/> class.
+        /// </summary>
+        /// <param name="userService">The user service.</param>
+        /// <param name="configurationService">The configuration service.</param>
         public TrackingService(IUserService userService, IConfigurationService configurationService)
         {
             this.configurationService = configurationService;
             this.userService = userService;
         }
 
+        /// <summary>
+        /// Gets the tracking.
+        /// </summary>
+        /// <returns>Current tracking object</returns>
         public Tracking GetTracking()
         {
             var data = this.userService.GetTrackingList();
             return string.IsNullOrWhiteSpace(data) ? null : JsonConvert.DeserializeObject<Tracking>(data);
         }
 
+        /// <summary>
+        /// Adds the item to the track list.
+        /// </summary>
+        /// <param name="item">The item.</param>
+        /// <param name="withSubItems">if set to <c>true</c> the items should be added with subitems.</param>
         public void AddItemToTrack(Item item, bool withSubItems = false)
         {
             Assert.ArgumentNotNull(item, "item");
@@ -52,6 +78,10 @@
             }
         }
 
+        /// <summary>
+        /// Removes the item from the track list.
+        /// </summary>
+        /// <param name="item">The item.</param>
         public void RemoveItemFromTrack(Item item)
         {
             Assert.ArgumentNotNull(item, "item");

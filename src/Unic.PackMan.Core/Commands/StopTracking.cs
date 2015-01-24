@@ -2,7 +2,6 @@
 {
     using Sitecore.Pipelines;
     using Sitecore.Shell.Framework.Commands;
-    using Unic.PackMan.Core.Tracking;
     using Unic.PackMan.Core.User;
 
     /// <summary>
