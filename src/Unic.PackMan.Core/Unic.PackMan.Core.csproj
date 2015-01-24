@@ -56,6 +56,10 @@
     <Compile Include="DependencyInjection\Config.cs" />
     <Compile Include="DependencyInjection\ContainerFactory.cs" />
     <Compile Include="Events\ItemHandler.cs" />
+    <Compile Include="Pipelines\AddItem\AddItemPipelineArgs.cs" />
+    <Compile Include="Pipelines\AddItem\AddItemToTrack.cs" />
+    <Compile Include="Pipelines\RemoveItem\RemoveItemFromTrack.cs" />
+    <Compile Include="Pipelines\RemoveItem\RemoveItemPipelineArgs.cs" />
     <Compile Include="Pipelines\StartTracking\ClearTrackingList.cs" />
     <Compile Include="Pipelines\StartTracking\StartTracking.cs" />
     <Compile Include="Pipelines\StopTracking\StopTracking.cs" />
