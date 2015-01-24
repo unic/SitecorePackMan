@@ -22,7 +22,7 @@ name: Click
 key: click
 content-length: 23
 
-package:generatepackage
+packman:generatepackage
 ----field----
 field: {DEC8D2D5-E3CF-48B6-A653-8E69E2716641}
 name: __Security
@@ -155,7 +155,7 @@ sitecore\admin
 ----version----
 language: en
 version: 1
-revision: cf276b2d-6147-4c02-bff6-c2bec6d4efaa
+revision: 60f5e8a2-62e7-4a12-a772-12e232422aad
 
 ----field----
 field: {4DF6DA21-E745-444C-956E-1D4A96AB8821}
@@ -198,14 +198,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-cf276b2d-6147-4c02-bff6-c2bec6d4efaa
+60f5e8a2-62e7-4a12-a772-12e232422aad
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 35
 
-20150124T033112:635576670721535623Z
+20150124T054315:635576749951916310Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

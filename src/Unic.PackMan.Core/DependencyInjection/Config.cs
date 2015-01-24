@@ -2,6 +2,7 @@
 {
     using Configuration;
     using Ninject.Modules;
+    using Unic.PackMan.Core.PackageGeneration;
     using Unic.PackMan.Core.Tracking;
     using Unic.PackMan.Core.User;
 
@@ -18,6 +19,7 @@
             this.Bind<IUserService>().To<UserService>();
             this.Bind<ITrackingService>().To<TrackingService>();
             this.Bind<IConfigurationService>().To<ConfigurationService>();
+            this.Bind<IPackageGenerationService>().To<PackageGenerationService>();
         }
     }
 }
