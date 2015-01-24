@@ -55,6 +55,7 @@
     <Compile Include="Configuration\IConfigurationService.cs" />
     <Compile Include="DependencyInjection\Config.cs" />
     <Compile Include="DependencyInjection\ContainerFactory.cs" />
+    <Compile Include="Gutters\TrackingState.cs" />
     <Compile Include="Pipelines\AddItem\AddItemPipelineArgs.cs" />
     <Compile Include="Pipelines\AddItem\AddItemToTrack.cs" />
     <Compile Include="Pipelines\RemoveItem\RemoveItemFromTrack.cs" />
