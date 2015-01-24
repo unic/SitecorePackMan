@@ -51,6 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\AddItem.cs" />
+    <Compile Include="Commands\AddItemWithSubitems.cs" />
+    <Compile Include="Commands\RemoveItem.cs" />
     <Compile Include="Configuration\ConfigurationService.cs" />
     <Compile Include="Configuration\IConfigurationService.cs" />
     <Compile Include="DependencyInjection\Config.cs" />

@@ -18,7 +18,7 @@
             var config = Factory.GetConfigNode("packman");
             if (config == null)
             {
-                Log.Warn("No include/exclude configuration found", this);
+                Log.Warn("No include/exclude configuration found. Everything will be included.", this);
                 return;
             }
 
