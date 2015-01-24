@@ -6,10 +6,9 @@
     using System.Web.UI;
     using Configuration;
     using Sitecore;
-    using Sitecore.Data.Items;
     using Sitecore.Diagnostics;
     using Sitecore.Globalization;
-    using Sitecore.Links;
+    using Sitecore.Resources;
     using Sitecore.Shell.Applications.ContentManager.Galleries;
     using Sitecore.Web.UI.HtmlControls;
     using Sitecore.Web.UI.Sheer;
@@ -38,22 +37,6 @@
             message.CancelDispatch = true;
         }
 
-        protected virtual ItemLink[] GetReferences(Item item)
-        {
-            Assert.ArgumentNotNull((object)item, "item");
-            LinkDatabase linkDatabase = Globals.LinkDatabase;
-            Assert.IsNotNull((object)linkDatabase, "Link database cannot be null");
-            return linkDatabase.GetItemReferences(item, true);
-        }
-
-        protected virtual ItemLink[] GetRefererers(Item item)
-        {
-            Assert.ArgumentNotNull((object)item, "item");
-            LinkDatabase linkDatabase = Globals.LinkDatabase;
-            Assert.IsNotNull((object)linkDatabase, "Link database cannot be null");
-            return linkDatabase.GetItemReferrers(item, true);
-        }
-
         protected override void OnLoad(EventArgs e)
         {
             Assert.ArgumentNotNull(e, "e");
@@ -79,7 +62,8 @@
             result.Append("<div style=\"font-weight:bold;padding:2px 0px 4px 0px\">" + Translate.Text("Tracked Items:") + "</div>");
             foreach (var trackingItem in tracking.Items)
             {
-                result.Append("<a href=\"#\" class=\"scLink\" >" + trackingItem.Uri + "</a>");
+                var icon = trackingItem.WithSubItems ? "Office/32x32/arrow_fork.png" : "Office/32x32/arrow_right.png";
+                result.Append("<a href=\"#\" class=\"scLink\" >" + Images.GetImage(icon, 16, 16, "absmiddle", "0px 4px 0px 0px")  + trackingItem.Uri + "</a>");
                 //result.Append("<a href=\"#\" class=\"scLink\" onclick='javascript:return scForm.invoke(\"item:load(id=" + trackingItem.Uri + ")\")'>" + Images.GetImage(part1.Appearance.Icon, 16, 16, "absmiddle", "0px 4px 0px 0px") + part1.DisplayName + " - [" + part1.Paths.Path + "]</a>");
             }
         }
