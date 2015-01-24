@@ -1,5 +1,6 @@
 ﻿namespace Unic.PackMan.Core.Tracking
 {
+    using System.Linq;
     using Newtonsoft.Json;
     using Sitecore.Data.Items;
     using Sitecore.Diagnostics;
@@ -32,6 +33,28 @@
 
             var data = this.GetTracking() ?? new Tracking();
             data.Items.Add(new TrackedItem { Id = item.ID.ToString(), WithSubItems = withSubItems });
+            this.userService.SaveTrackingList(JsonConvert.SerializeObject(data));
+        }
+
+        public void RemoveItemFromTrack(Item item)
+        {
+            Assert.ArgumentNotNull(item, "item");
+
+            if (!this.userService.IsTrackingEnabled())
+            {
+                Log.Info("Tracking is disabled, don't add the item", this);
+                return;
+            }
+
+            var data = this.GetTracking();
+            if (data == null) return;
+
+            var itemsToRemove = data.Items.Where(i => i.Id == item.ID.ToString()).ToList();
+            foreach (var itemToRemove in itemsToRemove)
+            {
+                data.Items.Remove(itemToRemove);
+            }
+            
             this.userService.SaveTrackingList(JsonConvert.SerializeObject(data));
         }
     }

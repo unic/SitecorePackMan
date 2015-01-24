@@ -27,5 +27,15 @@
 
             this.trackingService.AddItemToTrack(item);
         }
+
+        public void OnItemDeleted(object sender, EventArgs args)
+        {
+            if (!this.userService.IsTrackingEnabled()) return;
+
+            var item = Event.ExtractParameter(args, 0) as Item;
+            if (item == null) return;
+
+            this.trackingService.RemoveItemFromTrack(item);
+        }
     }
 }
