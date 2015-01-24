@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DependencyInjection\Config.cs" />
-    <Compile Include="DependencyInjection\DependencyResolver.cs" />
+    <Compile Include="DependencyInjection\ContainerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
