@@ -86,9 +86,19 @@
             lock (this.lockObject)
             {
                 var data = this.GetTracking() ?? new Tracking();
-                if (data.Items.Any(i => i.Uri == item.Uri.ToString())) return;
+                foreach (var existingItem in data.Items.Where(i => i.Uri == item.Uri.ToString()).ToList())
+                {
+                    data.Items.Remove(existingItem);
+                }
 
-                data.Items.Add(new TrackedItem { Uri = item.Uri.ToString(), WithSubItems = withSubItems });
+                data.Items.Add(new TrackedItem
+                        {
+                            Uri = item.Uri.ToString(),
+                            DisplayName = item.DisplayName,
+                            Path = item.Paths.FullPath,
+                            WithSubItems = withSubItems
+                        });
+
                 this.userService.SaveTrackingList(JsonConvert.SerializeObject(data));
             }
         }
