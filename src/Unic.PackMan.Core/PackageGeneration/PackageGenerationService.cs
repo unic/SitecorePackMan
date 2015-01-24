@@ -32,7 +32,7 @@
                                   {
                                       Metadata =
                                           {
-                                              PackageName = packageName,
+                                              PackageName = packageName.Trim(),
                                               Author = packageAuthor,
                                               Version = DateTime.UtcNow.ToString("yyyyMMddHHmmss")
                                           }

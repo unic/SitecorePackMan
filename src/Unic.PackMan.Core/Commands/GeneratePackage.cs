@@ -2,6 +2,7 @@
 {
     using System.Collections.Specialized;
     using Sitecore;
+    using Sitecore.Globalization;
     using Sitecore.Pipelines;
     using Sitecore.Shell.Framework.Commands;
     using Sitecore.Web.UI.Sheer;
@@ -68,7 +69,7 @@
         {
             if (!args.IsPostBack)
             {
-                SheerResponse.Input("Please enter package name", "Unnamed Package");
+                SheerResponse.Input(Translate.Text("Please enter package name"), Translate.Text("Unnamed Package"), @"^(?!\s*$).+", Translate.Text("Invalid package name"), 255);
                 args.WaitForPostBack();
             }
             else if (args.HasResult)
