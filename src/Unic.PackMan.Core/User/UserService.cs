@@ -50,6 +50,7 @@
         private void SetCustomProperty(string name, string value)
         {
             Profile.SetCustomProperty(name, value);
+            Profile.Save();
         }
     }
 }
