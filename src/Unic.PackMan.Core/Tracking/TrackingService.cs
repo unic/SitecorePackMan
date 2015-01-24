@@ -86,6 +86,8 @@
             lock (this.lockObject)
             {
                 var data = this.GetTracking() ?? new Tracking();
+                if (data.Items.Any(i => i.Uri == item.Uri.ToString())) return;
+
                 data.Items.Add(new TrackedItem { Uri = item.Uri.ToString(), WithSubItems = withSubItems });
                 this.userService.SaveTrackingList(JsonConvert.SerializeObject(data));
             }
