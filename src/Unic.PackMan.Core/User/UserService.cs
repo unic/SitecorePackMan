@@ -1,10 +1,13 @@
 ﻿namespace Unic.PackMan.Core.User
 {
+    using Sitecore.Diagnostics;
     using Sitecore.Security;
 
     public class UserService : IUserService
     {
         private const string TrackingEnabledProfileKey = "packman_tracking_enabled";
+
+        private const string TrackingListProfileKey = "packman_tracking_list";
         
         private static UserProfile Profile
         {
@@ -22,6 +25,16 @@
         public virtual void StopTracking()
         {
             this.SetCustomProperty(TrackingEnabledProfileKey, false.ToString());
+        }
+
+        public void SaveTrackingList(string data)
+        {
+            this.SetCustomProperty(TrackingListProfileKey, data);
+        }
+
+        public string GetTrackingList()
+        {
+            return this.GetCustomProperty(TrackingListProfileKey);
         }
 
         public bool IsTrackingEnabled()
