@@ -3,11 +3,12 @@
     using System;
     using Ninject;
     using Ninject.Modules;
+    using Sitecore.Reflection;
 
     /// <summary>
     /// Container factory to resolve classes from the IoC container.
     /// </summary>
-    public class ContainerFactory
+    public class ContainerFactory : IFactory
     {
         /// <summary>
         /// The kernel

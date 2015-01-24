@@ -48,7 +48,11 @@
   <ItemGroup>
     <Compile Include="DependencyInjection\Config.cs" />
     <Compile Include="DependencyInjection\ContainerFactory.cs" />
+    <Compile Include="Pipelines\StartTracking\StartTracking.cs" />
+    <Compile Include="Pipelines\StopTracking\StopTracking.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tracking\ITrackingService.cs" />
+    <Compile Include="Tracking\TrackingService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\StartTracking.cs" />
