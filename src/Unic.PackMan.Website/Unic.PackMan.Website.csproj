@@ -73,6 +73,8 @@
     <Content Include="App_Config\Include\Serialization.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="sitecore\shell\Applications\Content Manager\Galleries\PackMan\Tracked Items.css" />
+    <Content Include="sitecore\shell\Applications\Content Manager\Galleries\PackMan\Tracked Items.xml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

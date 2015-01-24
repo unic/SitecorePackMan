@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<control xmlns:def="Definition" xmlns="http://schemas.sitecore.net/Visual-Studio-Intellisense" xmlns:shell="http://www.sitecore.net/shell">
+  <Gallery.Tracked>
+    <Gallery>
+      <Stylesheet Src="/sitecore/shell/Applications/Content Manager/Galleries/Packman/Tracked Items.css" />
+
+      <CodeBeside Type="Unic.PackMan.Core.Tracking.TrackedItemsForm,Unic.PackMan.Core"/>
+
+      <div ID="Grid" class="scStretch">
+        <Border ID="Links" Class="scGalleryContent13" />
+        <div class="scGalleryBottom13">
+          <GalleryMenuLine />
+          <Gallery.Grip />
+        </div>
+      </div>
+            
+    </Gallery>
+  </Gallery.Tracked>
+</control>
