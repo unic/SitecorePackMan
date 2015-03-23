@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Unic.PackMan.Core</id>
-    <version>0.0.0</version>
+    <version>1.0.0.0</version>
     <authors>Kevin Brechbühl, Pascal Mathys, Tobias Studer, Reto Hugi</authors>
     <owners>Unic</owners>
     <projectUrl>https://github.com/unic/SitecorePackMan</projectUrl>

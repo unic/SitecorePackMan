@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Unic.PackMan</id>
-    <version>0.0.0</version>
+    <version>1.0.0.0</version>
     <authors>Kevin Brechbühl, Pascal Mathys, Tobias Studer, Reto Hugi</authors>
     <owners>Unic</owners>
     <projectUrl>https://github.com/unic/SitecorePackMan</projectUrl>
@@ -12,6 +12,9 @@
     <releaseNotes></releaseNotes>
     <copyright>Copyright 2015 Unic AG</copyright>
     <tags>Sitecore Unic PackMan</tags>
+	<dependencies>
+        <dependency id="Unic.PackMan.Core" version="$version$" />
+    </dependencies> 
   </metadata>
   <files>
 	<file src="..\..\serialization\core\**\*.*" target="serialization\core" />
