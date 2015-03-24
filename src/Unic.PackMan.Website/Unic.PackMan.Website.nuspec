@@ -3,7 +3,7 @@
   <metadata>
     <id>Unic.PackMan</id>
     <version>1.0.0.0</version>
-    <authors>Kevin Brechbühl, Pascal Mathys, Tobias Studer, Reto Hugi</authors>
+    <authors>Kevin Brechbühl, Pascal Mathys, Tobias Studer, Reto Hugi, Dawid Dworak</authors>
     <owners>Unic</owners>
     <projectUrl>https://github.com/unic/SitecorePackMan</projectUrl>
     <iconUrl>https://www.unic.com/img/unic-logo.jpg</iconUrl>
@@ -13,11 +13,11 @@
     <copyright>Copyright 2015 Unic AG</copyright>
     <tags>Sitecore Unic PackMan</tags>
 	<dependencies>
-        <dependency id="Unic.PackMan.Core" version="$version$" />
+        <dependency id="Unic.PackMan.Core" version="$NuGetVersion$" />
     </dependencies> 
   </metadata>
   <files>
-	<file src="..\..\serialization\core\**\*.*" target="serialization\core" />
+	<file src="..\..\serialization\**\*.*" target="serialization" />
 	<file src="readme.txt" target="" />
   </files>
 </package>
