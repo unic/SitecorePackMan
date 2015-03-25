@@ -75,12 +75,12 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="packages.config" />
-    <Content Include="App_Config\Include\Serialization.config" />
+    <None Include="App_Config\Include\Serialization.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="sitecore\shell\Applications\Content Manager\Galleries\PackMan\Tracked Items.css" />
     <Content Include="sitecore\shell\Applications\Content Manager\Galleries\PackMan\Tracked Items.xml" />
-    <Content Include="Web.config" />
+    <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
