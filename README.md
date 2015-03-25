@@ -13,8 +13,20 @@ You can either install the module with a Sitecore package over the `Installation
 
 ### Package Installation
 The module can be installed with the `Installation Wizard` in the Sitecore Desktop with the provided Sitecore package. For more information about package installations see [this blogpost](http://sitecoreguild.blogspot.ch/2013/03/quickstart-installing-sitecore-packages.html) (it's not written for Sitecore 8, but the process is the same). There are no additional post installation steps needed, you can directly go and use the module.
+It can be laso installed using the NuGet package.
 
-### Compile Code
+### NuGet Package Installation
+
+The module can be installed via NuGet:
+
+> Install-Package Unic.PackMan
+
+Otherwise you could also clone the repository from GitHub and build it manually. After cloning the repository, the following steps are required:
+Add Sitecore assemblies into ./lib directory. Check the ./lib/README.md file which files are needed.
+
+Note: We use a private NuGet feed to manage the Sitecore dependencies. This should not be an issue for you, though. We disabled automatic package restore for the project and added the ./lib directory as an alternative source to check for referenced libraries. So you should be able to build and run the module without issues once you've completed the steps above.
+
+### Manual Installation
 You can easily compile the complete code and deploy it to any Sitecore installation on your local environment. The following steps are necessary for a working deployment:
 
 - Add a file `deploy.txt` into the `build` folder on the root directory of the source code. The file contains the path to your webroot, i.e. `D:\Sitecore8\Website`
