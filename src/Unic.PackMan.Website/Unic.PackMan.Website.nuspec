@@ -17,7 +17,7 @@
     </dependencies> 
   </metadata>
   <files>
-	<file src="..\..\serialization\**\*.*" target="serialization" />
+	<file src="..\..\serialization\**\*.*" target="content\serialization" />
 	<file src="readme.txt" target="" />
   </files>
 </package>
