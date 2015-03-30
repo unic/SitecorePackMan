@@ -38,7 +38,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Kamsar.WebConsole">
+      <HintPath>..\..\..\packages\Kamsar.WebConsole.1.2.2.0\lib\net40\Kamsar.WebConsole.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Ninject">
+      <HintPath>..\..\..\packages\Ninject.3.0.1.10\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -55,18 +61,44 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Unicorn">
+      <HintPath>..\..\..\packages\Unicorn.2.0.4\lib\net45\Unicorn.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="..\..\Unic.PackMan.Website\**\*.config">
-      <Link>%(RecursiveDir)%(FileName)</Link>
-    </Compile>
-    <Compile Include="..\..\Unic.PackMan.Website\**\*.css">
-      <Link>%(RecursiveDir)%(FileName)</Link>
-    </Compile>
-    <Compile Include="..\..\Unic.PackMan.Website\**\*.xml">
-      <Link>%(RecursiveDir)%(FileName)</Link>
-    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web.config">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\Unic.PackMan.Website\sitecore\shell\Applications\Content Manager\Galleries\PackMan\Tracked Items.css">
+      <Link>sitecore\shell\Applications\Content Manager\Galleries\PackMan\Tracked Items.css</Link>
+    </Content>
+    <Content Include="..\..\Unic.PackMan.Website\sitecore\shell\Applications\Content Manager\Galleries\PackMan\Tracked Items.xml">
+      <Link>sitecore\shell\Applications\Content Manager\Galleries\PackMan\Tracked Items.xml</Link>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\Unic.PackMan.Website\App_Config\Include\Unic.PackMan.config">
+      <Link>App_Config\Include\Unic.PackMan.config</Link>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="..\..\Unic.PackMan.Website\App_Config\Include\Serialization.config">
+      <Link>App_Config\Include\Serialization.config</Link>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Unic.PackMan.Core.Sitecore7\Unic.PackMan.Core.Sitecore7\Unic.PackMan.Core.Sitecore7.csproj">
+      <Project>{44a321c6-56f8-4476-a1e8-65b4e4d65157}</Project>
+      <Name>Unic.PackMan.Core.Sitecore7</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
