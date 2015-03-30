@@ -41,12 +41,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Kamsar.WebConsole">
-      <HintPath>..\..\..\packages\Kamsar.WebConsole.1.2.2.0\lib\net40\Kamsar.WebConsole.dll</HintPath>
+      <HintPath>..\..\packages\Kamsar.WebConsole.1.2.2.0\lib\net40\Kamsar.WebConsole.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Ninject, Version=3.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\Ninject.3.0.1.10\lib\net40\Ninject.dll</HintPath>
+      <HintPath>..\..\packages\Ninject.3.0.1.10\lib\net40\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.DynamicData" />
@@ -64,7 +64,7 @@
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Unicorn">
-      <HintPath>..\..\..\packages\Unicorn.2.0.4\lib\net40\Unicorn.dll</HintPath>
+      <HintPath>..\..\packages\Unicorn.2.0.4\lib\net40\Unicorn.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -81,25 +81,25 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\..\Unic.PackMan.Website\sitecore\shell\Applications\Content Manager\Galleries\PackMan\Tracked Items.css">
+    <Content Include="..\Unic.PackMan.Website\sitecore\shell\Applications\Content Manager\Galleries\PackMan\Tracked Items.css">
       <Link>sitecore\shell\Applications\Content Manager\Galleries\PackMan\Tracked Items.css</Link>
     </Content>
-    <Content Include="..\..\Unic.PackMan.Website\sitecore\shell\Applications\Content Manager\Galleries\PackMan\Tracked Items.xml">
+    <Content Include="..\Unic.PackMan.Website\sitecore\shell\Applications\Content Manager\Galleries\PackMan\Tracked Items.xml">
       <Link>sitecore\shell\Applications\Content Manager\Galleries\PackMan\Tracked Items.xml</Link>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\..\Unic.PackMan.Website\App_Config\Include\Unic.PackMan.config">
+    <Content Include="..\Unic.PackMan.Website\App_Config\Include\Unic.PackMan.config">
       <Link>App_Config\Include\Unic.PackMan.config</Link>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="..\..\Unic.PackMan.Website\App_Config\Include\Serialization.config">
+    <Content Include="..\Unic.PackMan.Website\App_Config\Include\Serialization.config">
       <Link>App_Config\Include\Serialization.config</Link>
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Unic.PackMan.Core.Sitecore6\Unic.PackMan.Core.Sitecore6\Unic.PackMan.Core.Sitecore6.csproj">
+    <ProjectReference Include="..\Unic.PackMan.Core.Sitecore6\Unic.PackMan.Core.Sitecore6.csproj">
       <Project>{b674cc85-bedf-438d-9909-ce08aa7e1adf}</Project>
       <Name>Unic.PackMan.Core.Sitecore6</Name>
     </ProjectReference>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Unic.PackMan.Core.Sitecore7</id>
+    <version>1.0.0.0</version>
+    <authors>Kevin Brechbühl, Pascal Mathys, Tobias Studer, Reto Hugi, Dawid Dworak</authors>
+    <owners>Unic</owners>
+    <projectUrl>https://github.com/unic/SitecorePackMan</projectUrl>
+    <iconUrl>https://www.unic.com/img/unic-logo.jpg</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A module for people who want to keep track of Item and Template changes while working on new features. It enables you to automatically track those changes and add additional Items manually to the process. At the end of your work, you can generate an Item Package which contains all those changes without having to go into the Package Designer and remember which Items you touched. All of this without leaving the Content Editor!</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2015 Unic AG</copyright>
+    <tags>Sitecore Unic PackMan</tags>
+  </metadata>
+</package>
