@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\..\..\packages\Unic.Bob.Muck.0.3.0\build\Unic.Bob.Muck.props" Condition="Exists('..\..\..\packages\Unic.Bob.Muck.0.3.0\build\Unic.Bob.Muck.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -21,7 +20,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkProfile />
-    <NuGetPackageImportStamp>94ec8399</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>74eaeea8</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -80,22 +79,20 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\..\Unic.PackMan.Website\sitecore\shell\Applications\Content Manager\Galleries\*\*.css">
-      <Link>%(RecursiveDir)%(FileName)</Link>
+    <Content Include="..\..\Unic.PackMan.Website\sitecore\shell\Applications\Content Manager\Galleries\PackMan\Tracked Items.css">
+      <Link>sitecore\shell\Applications\Content Manager\Galleries\PackMan\Tracked Items.css</Link>
     </Content>
-    <Content Include="..\..\Unic.PackMan.Website\sitecore\shell\Applications\Content Manager\Galleries\*\*.xml">
-      <Link>%(RecursiveDir)%(FileName)</Link>
+    <Content Include="..\..\Unic.PackMan.Website\sitecore\shell\Applications\Content Manager\Galleries\PackMan\Tracked Items.xml">
+      <Link>sitecore\shell\Applications\Content Manager\Galleries\PackMan\Tracked Items.xml</Link>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\Unic.PackMan.Website\App_Config\Bob.config">
-      <Link>App_Config\Bob.config</Link>
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\..\Unic.PackMan.Website\App_Config\Include\Unic.PackMan.config">
       <Link>App_Config\Include\Unic.PackMan.config</Link>
+      <SubType>Designer</SubType>
+    </Content>
+  <Content Include="..\..\Unic.PackMan.Website\App_Config\Include\Serialization.config">
+      <Link>App_Config\Include\Serialization.config</Link>
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
@@ -130,14 +127,6 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\..\..\packages\Unic.Bob.Muck.0.3.0\build\Unic.Bob.Muck.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\Unic.Bob.Muck.0.3.0\build\Unic.Bob.Muck.props'))" />
-    <Error Condition="!Exists('..\..\..\packages\Unic.Bob.Muck.0.3.0\build\Unic.Bob.Muck.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\Unic.Bob.Muck.0.3.0\build\Unic.Bob.Muck.targets'))" />
-  </Target>
-  <Import Project="..\..\..\packages\Unic.Bob.Muck.0.3.0\build\Unic.Bob.Muck.targets" Condition="Exists('..\..\..\packages\Unic.Bob.Muck.0.3.0\build\Unic.Bob.Muck.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
