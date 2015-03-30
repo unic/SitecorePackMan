@@ -69,6 +69,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="sitecore\shell\Themes\Standard\Apps.zip" />
+    <Content Include="sitecore\shell\Themes\Standard\Office.zip" />
     <None Include="Web.config">
       <SubType>Designer</SubType>
     </None>
