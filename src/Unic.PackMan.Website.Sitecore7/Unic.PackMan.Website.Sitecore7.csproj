@@ -8,7 +8,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{58966014-6C5D-4DE0-AF2C-D1CF14FC3CF7}</ProjectGuid>
+    <ProjectGuid>{30937EBF-A073-41EB-B055-EBF8ED36CD2D}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -20,7 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
-    <NuGetPackageImportStamp>e72113b0</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>fd157828</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,13 +40,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Kamsar.WebConsole, Version=1.2.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Kamsar.WebConsole">
       <HintPath>..\..\packages\Kamsar.WebConsole.1.2.2.0\lib\net40\Kamsar.WebConsole.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Ninject, Version=3.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Ninject">
       <HintPath>..\..\packages\Ninject.3.0.1.10\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
@@ -65,34 +63,47 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="Unicorn, Version=2.0.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Unicorn">
       <HintPath>..\..\packages\Unicorn.2.0.4\lib\net45\Unicorn.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App_Config\Bob.config">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="packages.config" />
-    <None Include="App_Config\Include\Serialization.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="sitecore\shell\Applications\Content Manager\Galleries\PackMan\Tracked Items.css" />
-    <Content Include="sitecore\shell\Applications\Content Manager\Galleries\PackMan\Tracked Items.xml" />
-    <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Unic.PackMan.Core\Unic.PackMan.Core.csproj">
-      <Project>{12b5acd2-a600-4dc3-a70d-8c3e0f7aeb07}</Project>
-      <Name>Unic.PackMan.Core</Name>
-    </ProjectReference>
+    <Content Include="sitecore\shell\Themes\Standard\Apps.zip" />
+    <Content Include="sitecore\shell\Themes\Standard\Office.zip" />
+    <None Include="App_Config\Bob.config" />
+    <None Include="Web.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Config\Include\Unic.PackMan.config" />
+    <Content Include="..\Unic.PackMan.Website\sitecore\shell\Applications\Content Manager\Galleries\PackMan\Tracked Items.css">
+      <Link>sitecore\shell\Applications\Content Manager\Galleries\PackMan\Tracked Items.css</Link>
+    </Content>
+    <Content Include="..\Unic.PackMan.Website\sitecore\shell\Applications\Content Manager\Galleries\PackMan\Tracked Items.xml">
+      <Link>sitecore\shell\Applications\Content Manager\Galleries\PackMan\Tracked Items.xml</Link>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\Unic.PackMan.Website\App_Config\Include\Unic.PackMan.config">
+      <Link>App_Config\Include\Unic.PackMan.config</Link>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="..\Unic.PackMan.Website\App_Config\Include\Serialization.config">
+      <Link>App_Config\Include\Serialization.config</Link>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Unic.PackMan.Core.Sitecore7\Unic.PackMan.Core.Sitecore7.csproj">
+      <Project>{44a321c6-56f8-4476-a1e8-65b4e4d65157}</Project>
+      <Name>Unic.PackMan.Core.Sitecore7</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -107,9 +118,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>51090</DevelopmentServerPort>
+          <DevelopmentServerPort>57296</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:51090/</IISUrl>
+          <IISUrl>http://localhost:57296/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
@@ -119,10 +130,6 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
-  </PropertyGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>

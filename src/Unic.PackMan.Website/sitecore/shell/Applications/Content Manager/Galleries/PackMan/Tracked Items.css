@@ -20,3 +20,8 @@
 
 #Grid {
 }
+
+body.ff table tr td
+{
+	vertical-align: top;
+}
