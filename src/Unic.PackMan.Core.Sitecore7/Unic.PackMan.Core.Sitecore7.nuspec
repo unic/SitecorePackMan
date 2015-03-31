@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>Unic.PackMan</id>
+    <id>Unic.PackMan.Core.Sitecore7</id>
     <version>1.0.0.0</version>
     <authors>Kevin Brechbühl, Pascal Mathys, Tobias Studer, Reto Hugi, Dawid Dworak</authors>
     <owners>Unic</owners>
@@ -12,12 +12,5 @@
     <releaseNotes></releaseNotes>
     <copyright>Copyright 2015 Unic AG</copyright>
     <tags>Sitecore Unic PackMan</tags>
-	<dependencies>
-        <dependency id="Unic.PackMan.Core" version="$NuGetVersion$" />
-    </dependencies> 
   </metadata>
-  <files>
-	<file src="..\..\serialization\**\*.*" target="content\serialization" />
-	<file src="..\..\readme.txt" target="" />
-  </files>
 </package>
