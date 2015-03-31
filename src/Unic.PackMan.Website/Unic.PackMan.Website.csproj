@@ -74,7 +74,7 @@
     <None Include="App_Config\Bob.config">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="packages.config" />
+    <None Include="packages.config" />
     <None Include="App_Config\Include\Serialization.config" />
   </ItemGroup>
   <ItemGroup>

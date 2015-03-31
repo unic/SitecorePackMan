@@ -7,8 +7,8 @@
     <ProjectGuid>{B674CC85-BEDF-438D-9909-CE08AA7E1ADF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Unic.PackMan.Core.Sitecore6</RootNamespace>
-    <AssemblyName>Unic.PackMan.Core.Sitecore6</AssemblyName>
+    <RootNamespace>Unic.PackMan.Core</RootNamespace>
+    <AssemblyName>Unic.PackMan.Core</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -37,13 +37,11 @@
     <Reference Include="Ninject">
       <HintPath>..\..\packages\Ninject.3.0.1.10\lib\net40\Ninject.dll</HintPath>
     </Reference>
-    <Reference Include="Sitecore.Client, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Sitecore.Client.6.5.0.4113\lib\Sitecore.Client.dll</HintPath>
+    <Reference Include="Sitecore.Client">
+      <HintPath>..\..\packages\Sitecore.Client.6.5.121009.31\lib\Sitecore.Client.dll</HintPath>
     </Reference>
-    <Reference Include="Sitecore.Kernel, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Sitecore.Kernel.6.5.0.4113\lib\Sitecore.Kernel.dll</HintPath>
+    <Reference Include="Sitecore.Kernel">
+      <HintPath>..\..\packages\Sitecore.Kernel.6.5.121009.31\lib\Sitecore.Kernel.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -58,11 +56,12 @@
   <ItemGroup>
     <Compile Include="Commands\GeneratePackage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="..\Unic.PackMan.Core\**\*.cs" Exclude="..\Unic.PackMan.Core\Properties\**;..\Unic.PackMan.Core\Commands\GeneratePackage.cs">
+    <Compile Include="..\Unic.PackMan.Core\**\*.cs" Exclude="..\Unic.PackMan.Core\bin\**;..\Unic.PackMan.Core\obj\**;..\Unic.PackMan.Core\Properties\**;..\Unic.PackMan.Core\Commands\GeneratePackage.cs">
       <Link>%(RecursiveDir)%(FileName)</Link>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>

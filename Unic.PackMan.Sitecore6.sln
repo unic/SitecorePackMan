@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unic.PackMan.Core.Sitecore6", "..\Unic.PackMan.Core.Sitecore6\Unic.PackMan.Core.Sitecore6.csproj", "{B674CC85-BEDF-438D-9909-CE08AA7E1ADF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unic.PackMan.Core.Sitecore6", "src\Unic.PackMan.Core.Sitecore6\Unic.PackMan.Core.Sitecore6.csproj", "{B674CC85-BEDF-438D-9909-CE08AA7E1ADF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unic.PackMan.Website.Sitecore6", "..\Unic.PackMan.Website.Sitecore6\Unic.PackMan.Website.Sitecore6.csproj", "{D504AABF-DBC2-4424-8107-C454332DA97E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unic.PackMan.Website.Sitecore6", "src\Unic.PackMan.Website.Sitecore6\Unic.PackMan.Website.Sitecore6.csproj", "{D504AABF-DBC2-4424-8107-C454332DA97E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

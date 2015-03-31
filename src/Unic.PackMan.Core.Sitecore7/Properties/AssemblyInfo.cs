@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Unic.PackMan.Core.Sitecore7")]
+[assembly: AssemblyTitle("Unic.PackMan.Core")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Unic AG")]
-[assembly: AssemblyProduct("Unic.PackMan.Core.Sitecore7")]
+[assembly: AssemblyProduct("Unic.PackMan.Core")]
 [assembly: AssemblyCopyright("Copyright © Unic AG 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
