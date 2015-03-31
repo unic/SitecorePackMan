@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unic.PackMan.Core.Sitecore6", "..\Unic.PackMan.Core.Sitecore6\Unic.PackMan.Core.Sitecore6.csproj", "{B674CC85-BEDF-438D-9909-CE08AA7E1ADF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unic.PackMan.Website.Sitecore6", "..\Unic.PackMan.Website.Sitecore6\Unic.PackMan.Website.Sitecore6.csproj", "{D504AABF-DBC2-4424-8107-C454332DA97E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B674CC85-BEDF-438D-9909-CE08AA7E1ADF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B674CC85-BEDF-438D-9909-CE08AA7E1ADF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B674CC85-BEDF-438D-9909-CE08AA7E1ADF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B674CC85-BEDF-438D-9909-CE08AA7E1ADF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D504AABF-DBC2-4424-8107-C454332DA97E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D504AABF-DBC2-4424-8107-C454332DA97E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D504AABF-DBC2-4424-8107-C454332DA97E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D504AABF-DBC2-4424-8107-C454332DA97E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
